@@ -1,3 +1,6 @@
+Hook point evaluador · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +9,7 @@
 <title>Hook Point — Evaluador Social Media · Aliat</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
-
+ 
   :root {
     --bg: #edf4f8;
     --surface: #ffffff;
@@ -28,9 +31,9 @@
     --text: #0d2f40;
     --text-light: #3a6275;
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -38,7 +41,7 @@
     min-height: 100vh;
     padding: 0;
   }
-
+ 
   /* HEADER */
   header {
     background: var(--blue-dark);
@@ -60,7 +63,6 @@
     color: white;
     letter-spacing: 1px;
     flex-shrink: 0;
-    border-radius:6px;
   }
   .logo-text {
     font-family: 'Montserrat', sans-serif;
@@ -88,14 +90,14 @@
     text-transform: uppercase;
     padding: 4px 10px;
   }
-
+ 
   /* LAYOUT */
   .main {
     max-width: 860px;
     margin: 0 auto;
     padding: 40px 24px 80px;
   }
-
+ 
   /* INTRO */
   .intro {
     margin-bottom: 36px;
@@ -105,7 +107,7 @@
     font-size: 42px;
     font-weight: 800;
     letter-spacing: -1px;
-    color: var(--blue-dark);
+    color: var(--white);
     line-height: 1;
     margin-bottom: 8px;
   }
@@ -116,7 +118,7 @@
     line-height: 1.6;
     max-width: 520px;
   }
-
+ 
   /* FORM */
   .card {
     background: var(--surface);
@@ -125,7 +127,88 @@
     padding: 28px;
     margin-bottom: 24px;
   }
-
+ 
+  /* API KEY CARD — special styling */
+  .api-key-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blue);
+    box-shadow: 0 2px 12px rgba(0,80,130,0.07);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .api-key-card .api-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--blue-dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .api-key-card .api-desc {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .api-key-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .api-key-row input {
+    flex: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+  }
+  .api-key-toggle {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 12px 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .api-key-toggle:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+  .api-key-options {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .api-key-options input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+  }
+  .api-key-options label {
+    cursor: pointer;
+    user-select: none;
+  }
+  .api-key-status {
+    font-size: 11px;
+    color: var(--green);
+    margin-left: auto;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: none;
+  }
+  .api-key-status.visible { display: inline; }
+ 
   .field-label {
     font-size: 11px;
     font-weight: 700;
@@ -142,7 +225,7 @@
     font-size: 13px;
     font-weight: 400;
   }
-
+ 
   select, textarea, input {
     width: 100%;
     background: #f4f9fc;
@@ -172,7 +255,7 @@
     line-height: 1.6;
   }
   ::placeholder { color: var(--muted); }
-
+ 
   .field-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -181,7 +264,7 @@
   }
   .field-block { margin-bottom: 20px; }
   .field-block:last-child { margin-bottom: 0; }
-
+ 
   /* CRITERIA */
   /* HOOK TYPE PILLS */
   .hook-type-grid {
@@ -205,7 +288,7 @@
   }
   .hook-type-pill:hover { border-color: var(--blue); color: var(--text); }
   .hook-type-pill.selected { background: var(--blue-dim); border-color: var(--blue); color: var(--blue-dark); }
-
+ 
   /* FUNNEL */
   .funnel-row {
     display: grid;
@@ -225,7 +308,7 @@
   .funnel-btn .fn-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
   .funnel-btn.selected { background: var(--blue-dim); border-color: var(--blue); }
   .funnel-btn.selected .fn-label, .funnel-btn.selected .fn-desc { color: var(--blue-dark); }
-
+ 
   .criteria-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -250,7 +333,7 @@
     flex-shrink: 0;
     margin-top: 4px;
   }
-
+ 
   /* SUBMIT */
   .btn-eval {
     width: 100%;
@@ -270,7 +353,7 @@
     color: var(--muted);
     cursor: not-allowed;
   }
-
+ 
   /* LOADING */
   .loading-state {
     display: none;
@@ -291,10 +374,10 @@
     animation: spin 0.8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
-
+ 
   /* RESULTS */
   .result-container { display: none; }
-
+ 
   .score-hero {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -316,7 +399,6 @@
   .score-circle .num {
     font-size: 38px;
     line-height: 1;
-    font-weight: 800;
   }
   .score-circle .den {
     font-size: 12px;
@@ -336,12 +418,12 @@
     line-height: 1.6;
     color: var(--text);
   }
-
+ 
   /* score color states */
   .score-high .score-circle { background: var(--blue-dim); border: 2px solid var(--blue); color: var(--blue-dark); }
   .score-med .score-circle { background: var(--amber-dim); border: 2px solid var(--amber); color: var(--amber); }
   .score-low .score-circle { background: var(--red-dim); border: 2px solid var(--red); color: var(--red); }
-
+ 
   /* CRITERIA RESULTS */
   .section-title {
     font-size: 11px;
@@ -353,7 +435,7 @@
     padding-bottom: 8px;
     border-bottom: 2px solid var(--blue-dim);
   }
-
+ 
   .criteria-results {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -361,7 +443,7 @@
     margin-bottom: 24px;
     overflow: hidden;
   }
-
+ 
   .criterion-row {
     display: flex;
     align-items: flex-start;
@@ -370,7 +452,7 @@
     border-bottom: 1px solid var(--border);
   }
   .criterion-row:last-child { border-bottom: none; }
-
+ 
   .crit-status {
     width: 22px; height: 22px;
     display: flex; align-items: center; justify-content: center;
@@ -382,12 +464,12 @@
   .crit-pass { color: var(--green); }
   .crit-fail { color: var(--red); }
   .crit-warn { color: var(--amber); }
-
+ 
   .crit-body { flex: 1; }
   .crit-name {
     font-size: 13px;
     font-weight: 600;
-    color: var(--blue-dark);
+    color: var(--white);
     margin-bottom: 3px;
   }
   .crit-note {
@@ -395,7 +477,7 @@
     color: var(--muted);
     line-height: 1.5;
   }
-
+ 
   /* ANALYSIS BLOCKS */
   .analysis-grid {
     display: grid;
@@ -421,7 +503,7 @@
     line-height: 1.6;
     color: var(--text);
   }
-
+ 
   /* REWRITE SECTION */
   .rewrite-card {
     background: var(--surface);
@@ -451,7 +533,7 @@
     font-family: 'Montserrat', sans-serif; font-weight: 700;
     font-size: 16px;
     letter-spacing: 1.5px;
-    color: var(--blue-dark);
+    color: var(--white);
   }
   .rewrite-body {
     padding: 20px;
@@ -461,7 +543,7 @@
     font-size: 24px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: var(--blue-dark);
+    color: var(--white);
     margin-bottom: 12px;
     line-height: 1.1;
   }
@@ -491,13 +573,13 @@
     color: var(--text);
     line-height: 1.6;
   }
-
+ 
   /* RESET */
   .btn-reset {
     background: transparent;
     border: 1px solid var(--border);
     color: var(--text-light);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
     padding: 10px 20px;
     cursor: pointer;
@@ -505,7 +587,7 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-reset:hover { border-color: var(--blue); color: var(--blue); }
-
+ 
   /* ERROR */
   .error-msg {
     background: rgba(0,170,210,0.2);
@@ -516,41 +598,82 @@
     margin-bottom: 20px;
     display: none;
   }
-
+ 
+  /* CHANNEL TABS */
+  .channel-selector {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    overflow: hidden;
+  }
+  .ch-tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: background 0.15s, color 0.15s;
+    border-right: 1px solid var(--border);
+  }
+  .ch-tab:last-child { border-right: none; }
+  .ch-tab.active { background: var(--blue); color: white; }
+ 
   @media (max-width: 600px) {
     .field-row { grid-template-columns: 1fr; }
     .criteria-grid { grid-template-columns: 1fr 1fr; }
     .analysis-grid { grid-template-columns: 1fr; }
     .score-hero { flex-direction: column; gap: 16px; }
     .intro h1 { font-size: 36px; }
+    .api-key-row { flex-direction: column; align-items: stretch; }
   }
 </style>
 </head>
 <body>
-
+ 
 <header>
-  <div class="logo-mark">Aliat</div>
+  <div class="logo-mark" style="border-radius:6px;font-weight:800;font-size:14px;letter-spacing:0;padding:0 8px;width:auto">Aliat</div>
   <div>
     <div class="logo-text">Hook Point Evaluador</div>
     <div class="logo-sub">Social Media — Instagram &amp; Facebook</div>
   </div>
   <div class="header-badge">Agente IA</div>
 </header>
-
+ 
 <div class="main">
-
-  <div class="card" style="background: var(--amber-dim); border-color: var(--amber);">
-    <div class="field-label" style="color: var(--amber);">Configuración de Acceso</div>
-    <p style="font-size: 12px; margin-bottom: 12px; color: var(--text-light);">Para habilitar la evaluación, ingresa tu API Key de Anthropic. Esta no se guarda permanentemente.</p>
-    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." style="background: #fff; border-color: var(--amber);">
+ 
+  <div class="intro">
+    <h1>Evalúa tu<br><span>Publicación</span></h1>
+    <p>Tu coach de contenido. Analiza tu publicación con el modelo Hook Point, te dice qué funciona, qué ajustar y cómo pensar mejor la siguiente versión.</p>
   </div>
-
+ 
+  <!-- FORM -->
   <div id="formSection">
-    <div class="intro">
-      <h1>Evalúa tu<br><span>Publicación</span></h1>
-      <p>Tu coach de contenido. Analiza tu publicación con el modelo Hook Point, te dice qué funciona, qué ajustar y cómo pensar mejor la siguiente versión.</p>
+ 
+    <!-- API KEY CARD -->
+    <div class="api-key-card">
+      <div class="api-title">
+        🔑 API Key de Anthropic
+        <span class="api-key-status" id="apiKeyStatus">✓ Guardada</span>
+      </div>
+      <div class="api-desc">Ingresa tu API Key de Anthropic para poder evaluar publicaciones. Tu key se usa solo desde tu navegador y nunca se envía a otro servidor.</div>
+      <div class="api-key-row">
+        <input type="password" id="apiKey" placeholder="sk-ant-api03-..." autocomplete="off" />
+        <button type="button" class="api-key-toggle" onclick="toggleApiKeyVisibility()">Ver</button>
+      </div>
+      <div class="api-key-options">
+        <input type="checkbox" id="rememberKey" />
+        <label for="rememberKey">Recordar en este navegador (localStorage)</label>
+      </div>
     </div>
-
+ 
     <div class="card">
       <div class="field-block">
           <div class="field-label">Red Social <span class="req">*</span></div>
@@ -563,17 +686,17 @@
             <option value="facebook_reels">Facebook — Reels</option>
           </select>
         </div>
-
+ 
       <div class="field-block">
         <div class="field-label">Hook / Primera línea <span class="req">*</span></div>
         <input type="text" id="hook" placeholder='Ej: "Tu experiencia no basta"' maxlength="200" />
       </div>
-
+ 
       <div class="field-block">
         <div class="field-label">Cuerpo del copy completo</div>
         <textarea id="cuerpo" placeholder="Pega aquí el texto completo de la publicación (opcional pero recomendado para evaluación de canal y progresión)..."></textarea>
       </div>
-
+ 
       <div class="field-row">
         <div class="field-block">
           <div class="field-label">Ángulo</div>
@@ -606,7 +729,7 @@
           </select>
         </div>
       </div>
-
+ 
       <div class="field-block">
         <div class="field-label">Tipo de hook <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:10px">(★ = más valorado para estrategia actual)</span></div>
         <div class="hook-type-grid" id="hookTypeGrid">
@@ -619,7 +742,7 @@
           <div class="hook-type-pill" data-val="identidad" onclick="selectHookType(this)">Identidad</div>
         </div>
       </div>
-
+ 
       <div class="field-block">
         <div class="field-label">Etapa del funnel</div>
         <div class="funnel-row">
@@ -637,7 +760,7 @@
           </div>
         </div>
       </div>
-
+ 
       <div class="field-block" style="margin-bottom:0">
         <div class="field-label">Criterios que se evalúan automáticamente</div>
         <div class="criteria-grid">
@@ -656,27 +779,55 @@
         </div>
       </div>
     </div>
-
+ 
     <div class="error-msg" id="errorMsg"></div>
-
+ 
     <button class="btn-eval" id="btnEval" onclick="evaluarCopy()">
       EVALUAR PUBLICACIÓN
     </button>
   </div>
-
+ 
+  <!-- LOADING -->
   <div class="loading-state" id="loadingState">
     <div class="spinner"></div>
     REVISANDO CON EL MODELO...
   </div>
-
+ 
+  <!-- RESULTS -->
   <div class="result-container" id="resultSection">
-    </div>
-
+    <!-- filled dynamically -->
+  </div>
+ 
 </div>
-
+ 
 <script>
 const API_URL = "https://api.anthropic.com/v1/messages";
-
+const STORAGE_KEY = "aliat_hookpoint_apikey";
+ 
+// Load saved API key on page load
+window.addEventListener('DOMContentLoaded', () => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      document.getElementById('apiKey').value = saved;
+      document.getElementById('rememberKey').checked = true;
+      document.getElementById('apiKeyStatus').classList.add('visible');
+    }
+  } catch(e) { /* localStorage might be blocked */ }
+});
+ 
+function toggleApiKeyVisibility() {
+  const input = document.getElementById('apiKey');
+  const btn = event.target;
+  if (input.type === 'password') {
+    input.type = 'text';
+    btn.textContent = 'Ocultar';
+  } else {
+    input.type = 'password';
+    btn.textContent = 'Ver';
+  }
+}
+ 
 function showError(msg) {
   const el = document.getElementById('errorMsg');
   el.textContent = msg;
@@ -685,14 +836,11 @@ function showError(msg) {
 function hideError() {
   document.getElementById('errorMsg').style.display = 'none';
 }
-
+ 
 async function evaluarCopy() {
   hideError();
-
-  // VALIDACIÓN DE API KEY
-  const userApiKey = document.getElementById('apiKeyInput').value.trim();
-  if (!userApiKey) { showError('Por favor, ingresa tu API Key de Anthropic para continuar.'); return; }
-
+  const apiKey = document.getElementById('apiKey').value.trim();
+  const remember = document.getElementById('rememberKey').checked;
   const canal = document.getElementById('canal').value;
   const hook = document.getElementById('hook').value.trim();
   const cuerpo = document.getElementById('cuerpo').value.trim();
@@ -700,16 +848,29 @@ async function evaluarCopy() {
   const pilar = document.getElementById('pilar').value;
   const hookType = document.querySelector('.hook-type-pill.selected')?.dataset.val || '';
   const funnel = document.querySelector('.funnel-btn.selected')?.dataset.val || '';
-
+ 
+  if (!apiKey) { showError('Ingresa tu API Key de Anthropic para continuar.'); return; }
+  if (!apiKey.startsWith('sk-ant-')) { showError('La API Key no parece válida. Debe comenzar con "sk-ant-".'); return; }
   if (!hook) { showError('El hook / primera línea es obligatorio.'); return; }
   if (!canal) { showError('Selecciona el canal de la publicación.'); return; }
-
+ 
+  // Save or clear API key based on checkbox
+  try {
+    if (remember) {
+      localStorage.setItem(STORAGE_KEY, apiKey);
+      document.getElementById('apiKeyStatus').classList.add('visible');
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
+      document.getElementById('apiKeyStatus').classList.remove('visible');
+    }
+  } catch(e) { /* localStorage might be blocked */ }
+ 
   document.getElementById('formSection').style.display = 'none';
   document.getElementById('loadingState').style.display = 'flex';
   document.getElementById('resultSection').style.display = 'none';
-
+ 
   const hookWords = hook.trim().split(/\s+/).length;
-
+ 
   const HOOK_TYPE_DESC = {
     interrupcion: 'Interrupción — rompe con lo esperado para detener el scroll. Ej: "Nadie te va a decir esto sobre estudiar una carrera…"',
     curiosidad: 'Curiosidad — abre un loop mental. Ej: "El error #1 que te está costando oportunidades"',
@@ -719,13 +880,13 @@ async function evaluarCopy() {
     aspiracional: 'Aspiracional — apela a lo que quieren ser, no solo al dolor. Ej: "Imagina trabajar en lo que realmente te gusta". Útil para branding y awareness. Ayuda a balancear fatiga de gancho.',
     identidad: 'Identidad — habla de quién quieren ser. Ej: "Para quienes no se conforman con un sueldo promedio"'
   };
-
+ 
   const FUNNEL_HOOKS = {
     TOFU: 'Para TOFU/awareness: los hooks más efectivos son Disruptivo (★ prioritario), Curiosidad y Aspiracional.',
     MOFU: 'Para MOFU/consideración: los hooks más efectivos son Identificación, Valor inmediato y Curiosidad de descubrimiento.',
     BOFU: 'Para BOFU/decisión: los hooks más efectivos son los de Estatus, Oportunidad concreta y Resultado claro.'
   };
-
+ 
   const PILAR_EJEMPLOS = {
     'NO SÉ QUÉ ESTUDIAR': 'Hooks de referencia para este pilar — Error: "Elegir por gusto te limita", "Tu decisión está mal enfocada" | Pérdida: "Una mala carrera te roba años" | Realidad: "Tu pasión sola no paga tu futuro"',
     'CÓMO ELEGIR CARRERA': 'Hooks de referencia — Error: "Estás comparando carreras de forma equivocada" | Pérdida: "Una mala elección limita tu futuro" | Realidad: "Elegir carrera también es elegir estilo de vida"',
@@ -734,20 +895,20 @@ async function evaluarCopy() {
     'QUÉ CAMPUS ME CONVIENE': 'Hooks de referencia — Error: "Elegir campus por apariencia es un error" | Pérdida: "Un mal trayecto puede hacerte abandonar" | Realidad: "Tu rutina importa más de lo crees"',
     'REVALIDACIÓN': 'Hooks de referencia — Error: "Empezar de cero sería un gran error" | Pérdida: "Ya invertiste tiempo… no lo desperdicies" | Realidad: "No todo está perdido para tu carrera"'
   };
-
+ 
   const systemPrompt = `Eres el coach de contenido orgánico de Aliat Universidades, experto en la metodología Hook Point aplicada a educación.
-
+ 
 Tu rol NO es castigar ni señalar errores sin más. Tu rol es actuar como un jefe virtual que acompaña, orienta y hace crecer al equipo de Social Media — como si la directora de marketing estuviera dando retroalimentación personalizada a cada persona, sin estar físicamente presente.
-
+ 
 Tu tono es: directo, honesto, constructivo y motivador. Cuando algo no funciona, explicas POR QUÉ no funciona (en términos del modelo) y das pistas claras para que la persona llegue sola a la mejora — sin regalarle la respuesta.
-
+ 
 Principios de tu retroalimentación:
 1. Reconoce lo que sí funciona antes de señalar lo que falla
 2. Explica el razonamiento detrás de cada observación (conecta con el modelo)
 3. Haz preguntas que activen el pensamiento del creador, no solo correcciones
 4. Da pistas y ejemplos de dirección — no el copy terminado
 5. Cierra siempre con un mensaje motivador y un reto concreto
-
+ 
 ════════════════════════════════
 CONTEXTO ESTRATÉGICO
 ════════════════════════════════
@@ -758,33 +919,33 @@ CONTEXTO ESTRATÉGICO
 - Formato evaluado: ${canal} | Ángulo intentado: ${angulo || 'no definido'} | Tipo de hook: ${hookType || 'no especificado'} | Funnel: ${funnel || 'no especificado'} | Pilar: ${pilar || 'no especificado'}
 ${pilar && PILAR_EJEMPLOS[pilar] ? `- Referencia del pilar: ${PILAR_EJEMPLOS[pilar]}` : ''}
 - Palabras en hook: ${hookWords}
-
+ 
 ════════════════════════════════
 OBJETIVO DEL CONTENIDO ORGÁNICO
 ════════════════════════════════
 Una pieza orgánica debe lograr AL MENOS UNO de estos efectos:
 detener / incomodar / conectar / hacer pensar / reflejar al usuario / generar guardado / provocar comentario / motivar compartido / abrir conversación posterior.
 Si no mueve ninguno de esos, no funciona como contenido estratégico.
-
+ 
 ════════════════════════════════
 8 ÁNGULOS OFICIALES DEL MODELO
 ════════════════════════════════
 1. ERROR — Muestra que el usuario evalúa mal una decisión. Provoca: "Tal vez lo estoy viendo desde un criterio equivocado." Ej: "Elegir por gusto te limita" / "Estás comparando mal" / "No es falta de tiempo". RIESGO: si se repite demasiado, suena a regaño.
-
+ 
 2. PÉRDIDA — Hace visible lo que puede perder si no actúa o decide mal (tiempo, avance, energía, años). Provoca: "Esto puede costarme más de lo que creía." Ej: "Una mala carrera cuesta años" / "Cada año sin estudiar pesa". RIESGO: puede saturar emocionalmente.
-
+ 
 3. REALIDAD — Rompe una idea simplificada y muestra una verdad más útil. Provoca: "No era tan simple como pensaba." Ej: "Tu pasión no basta" / "No eliges materias" / "Trabajar no te limita". RIESGO: puede sentirse frío si no abre solución.
-
+ 
 4. REENCUADRE — Cambia la forma en que el usuario ve el problema. Provoca: "Nunca lo había visto así." Ej: "No busques tu pasión" / "Elige vida, no materias" / "No necesitas más tiempo" / "No empiezas desde cero". VENTAJA: genera tensión sin sonar agresivo. Es uno de los más valiosos para carrusel educativo.
-
+ 
 5. OPORTUNIDAD OCULTA — Muestra algo valioso que el usuario no estaba viendo. Provoca: "Hay algo que sí me puede ayudar." Ej: "Tu duda también orienta" / "Tu trayecto también importa" / "Tus materias todavía valen". VENTAJA: equilibra el tono de la marca.
-
+ 
 6. IDENTIDAD / ESPEJO — Hace que el usuario se vea reflejado. Provoca: "Eso soy yo." / "Eso me está pasando." Ej: "Trabajas, pero quieres avanzar" / "Tu día ya está saturado" / "Ya avanzaste más de lo crees". VENTAJA: se siente humano y poco institucional. Ideal para reels y captions conversacionales.
-
+ 
 7. ASPIRACIÓN REALISTA — Conecta con lo que quieren lograr, desde una posibilidad creíble. Provoca: "Eso sí se siente alcanzable." Ej: "Elige una vida posible" / "Avanza sin soltar tu vida" / "Estudia donde sí te funciona". RIESGO: si se usa mal, se convierte en frase bonita vacía. Siempre debe amarrarse con solución real.
-
+ 
 8. PRUEBA / EVIDENCIA — Da criterios claros para que el usuario piense mejor. Provoca: "Necesito revisar esto." Ej: "Tres señales antes de elegir" / "Compara estas cuatro cosas" / "Calcula tu trayecto real". VENTAJA: genera guardados y compartidos. Ideal para carruseles.
-
+ 
 ════════════════════════════════
 TAXONOMÍA DE TIPOS DE HOOK
 ════════════════════════════════
@@ -796,7 +957,7 @@ Los 8 ángulos anteriores se expresan a través de estos tipos de hook:
 - Disruptivo ★: desafía una creencia instalada, genera fricción = atención (prioritario TOFU)
 - Aspiracional: apela a la identidad futura; construye marca, no solo convierte
 - Identidad: habla de quién quiere ser el usuario, no de su dolor
-
+ 
 ════════════════════════════════
 BALANCE EDITORIAL (regla sistémica)
 ════════════════════════════════
@@ -806,9 +967,9 @@ El mix correcto para que la marca no se vuelva predecible:
 - Identidad / Espejo: 20%
 - Evidencia / Utilidad: 10%
 - Aspiración realista: 5%
-
+ 
 Si el copy evaluado es otro Error/Pérdida/Realidad más en una cuenta que ya abusa de ese tono → marca "alerta_fatiga: true".
-
+ 
 ════════════════════════════════
 REGLAS POR PLATAFORMA
 ════════════════════════════════
@@ -816,12 +977,12 @@ INSTAGRAM — construye identidad, afinidad, guardados, percepción aspiracional
 - Ángulos que mejor funcionan: Reencuadre, Identidad, Oportunidad, Evidencia, Aspiración realista
 - Evitar: sobrecargar de texto en diseño, que todo parezca anuncio, copy institucional
 - REGLA: si la primera lámina no tiene tensión, el carrusel ya perdió
-
+ 
 FACEBOOK — conversación, compartidos, públicos familiares, padres de familia, textos un poco más desarrollados.
 - Ángulos que mejor funcionan: Error, Realidad, Identidad, Evidencia, contenidos para papás
 - Permite captions más explicativos que Instagram
 - REGLA: el contenido debe ser más compartible y más explicativo
-
+ 
 ════════════════════════════════
 REGLAS POR FORMATO
 ════════════════════════════════
@@ -830,29 +991,29 @@ REGLAS POR FORMATO
 - instagram_stories: hook ultra corto 3-4 palabras, leerse en 1 segundo, 1 emoji natural máx
 - facebook_feed: hook igual de fuerte, permite 2-3 líneas antes del "Ver más", tono más conversacional y compartible
 - facebook_reels: igual que instagram_reels, brevísimo, naturalidad sobre producción
-
+ 
 ════════════════════════════════
 FORMATOS Y SUS ÁNGULOS IDEALES
 ════════════════════════════════
 - Post estático: Error, Pérdida, Realidad, Identidad — una sola idea contundente
 - Carrusel: Reencuadre, Evidencia, Oportunidad, Realidad — cada lámina debe justificar el swipe
 - Reel/video corto: Identidad, Error, Reencuadre, Pérdida — hook en primer segundo, entendible sin audio
-
+ 
 ════════════════════════════════
 PILARES DE CONTENIDO PRIORITARIOS
 ════════════════════════════════
 No sé qué estudiar / Cómo elegir carrera / ¿Puedo estudiar y trabajar? / Papá o mamá buscando universidad / Qué campus me conviene / Revalidación / Estudiar en línea / Empleabilidad y futuro profesional / Vida universitaria útil / Diferenciadores reales de la oferta
-
+ 
 ════════════════════════════════
 HOOKS DE REFERENCIA BUENOS
 ════════════════════════════════
 "Tu carrera no basta" / "Lo técnico no te alcanza" / "Elegir por gusto te limita" / "Sin título, hay techos" / "No es tiempo… es modalidad" / "Tu pasión sola no paga" / "No busques tu pasión" / "Elige vida, no materias" / "Trabajas, pero quieres avanzar" / "Tu duda también orienta" / "Tres señales antes de elegir"
-
+ 
 ════════════════════════════════
 HOOKS PROHIBIDOS (genéricos / fatiga / clickbait vacío)
 ════════════════════════════════
 "Nadie te dice esto" / "Estás cometiendo un error" / "Descubre la mejor opción" / "Hoy te voy a contar…" / "¿Quieres mejorar?" / "Conoce nuestra universidad" / "Estudia con nosotros" / "Tenemos estas carreras" / "Inscríbete hoy" / "Descubre una nueva opción para tu futuro" / "Cambia tu futuro" / "Tu camino empieza hoy"
-
+ 
 ════════════════════════════════
 CRITERIOS DE EVALUACIÓN (12)
 ════════════════════════════════
@@ -868,13 +1029,13 @@ CRITERIOS DE EVALUACIÓN (12)
 10. SIN GENÉRICO / SIN CLICKBAIT VACÍO: No usa frases prohibidas ni equivalentes genéricos
 11. CUMPLE LA PROMESA: Si hay cuerpo, el copy desarrolla y sostiene lo que el hook prometió
 12. RELEVANCIA AL PILAR Y AUDIENCIA: La tensión y el ángulo corresponden al pilar y al público correcto
-
+ 
 ════════════════════════════════
 CHECKLIST OPERATIVO (antes de aprobar)
 ════════════════════════════════
 ¿La pieza tiene Hook Point claro? / ¿Se entiende en menos de 1 segundo? / ¿Habla de una tensión real? / ¿El ángulo está bien elegido? / ¿No suena institucional? / ¿No depende solo del miedo? / ¿El formato es el correcto? / ¿Entrega valor real? / ¿Tiene potencial de guardado, compartido o comentario?
 Si falla en más de 3 puntos → debe rehacerse.
-
+ 
 RESPONDE EN JSON PURO sin markdown ni backticks. Sé CONCISO en criterios (máx 12 palabras por nota). En las secciones de coaching, escribe en tono humano, cálido y directo. Estructura EXACTA:
 {
   "score": <0-10>,
@@ -913,54 +1074,58 @@ RESPONDE EN JSON PURO sin markdown ni backticks. Sé CONCISO en criterios (máx 
     {"angulo": "Identidad", "tipo_hook": "<tipo>", "descripcion": "El usuario se ve reflejado", "hook": "<max 6 palabras>", "caption_feed": "<caption feed max 3 líneas>", "copy_alt": "<versión ultra corta Stories/Reels max 4 palabras>"}
   ]
 }`;
-
+ 
   const userMsg = `Evalúa este copy con máxima exigencia:
-
+ 
 RED SOCIAL / FORMATO: ${canal}
 ÁNGULO INTENTADO: ${angulo || 'No definido'}
 TIPO DE HOOK DECLARADO: ${hookType || 'No especificado'}
 ETAPA FUNNEL: ${funnel || 'No especificada'}
 PILAR: ${pilar || 'No especificado'}
-
+ 
 HOOK / PRIMERA LÍNEA:
 "${hook}"
-
+ 
 ${cuerpo ? `CUERPO COMPLETO:\n${cuerpo}` : '(Solo hook proporcionado — evalúa solo el hook)'}
-
+ 
 IMPORTANTE: Si el hook tiene más de 6 palabras es FAIL automático en longitud. Dame el JSON completo.`;
-
+ 
   try {
     const res = await fetch(API_URL, {
       method: 'POST',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
-        'x-api-key': userApiKey, // LLAVE DEL USUARIO
+        'x-api-key': apiKey,
         'anthropic-version': '2023-06-01',
         'anthropic-dangerous-direct-browser-access': 'true'
       },
       body: JSON.stringify({
-        model: 'claude-3-5-sonnet-20240620',
+        model: 'claude-sonnet-4-20250514',
         max_tokens: 3000,
         system: systemPrompt,
         messages: [{ role: 'user', content: userMsg }]
       })
     });
-
+ 
     const data = await res.json();
     if (!res.ok) throw new Error(data.error?.message || 'Error en API');
-
+ 
     const rawText = data.content.map(b => b.text || '').join('');
     let clean = rawText.replace(/```json|```/g, '').trim();
-
-    // Repair truncated JSON
+ 
+    // Repair truncated JSON: close any open strings/arrays/objects
     let result;
     try {
       result = JSON.parse(clean);
     } catch(e) {
+      // Try to salvage by truncating at last complete top-level field
+      // Find last valid closing brace position
       let fixed = clean;
+      // Remove trailing incomplete content after last complete value
       const lastGoodBrace = fixed.lastIndexOf('"}');
       if (lastGoodBrace > 0) {
         fixed = fixed.substring(0, lastGoodBrace + 2);
+        // Close any unclosed arrays/objects
         const opens = (fixed.match(/\[/g)||[]).length - (fixed.match(/\]/g)||[]).length;
         const objOpens = (fixed.match(/\{/g)||[]).length - (fixed.match(/\}/g)||[]).length;
         for(let i=0;i<opens;i++) fixed += ']';
@@ -972,25 +1137,25 @@ IMPORTANTE: Si el hook tiene más de 6 palabras es FAIL automático en longitud.
         throw new Error('La respuesta del modelo fue cortada. Intenta de nuevo.');
       }
     }
-
+ 
     renderResult(result, hook, canal);
-
+ 
   } catch (err) {
     document.getElementById('formSection').style.display = 'block';
     document.getElementById('loadingState').style.display = 'none';
     showError('Error al evaluar: ' + err.message);
   }
 }
-
+ 
 function renderResult(r, hook, canal) {
   document.getElementById('loadingState').style.display = 'none';
   const sec = document.getElementById('resultSection');
   sec.style.display = 'block';
-
+ 
   const score = Math.min(10, Math.max(0, r.score));
   const scoreClass = score >= 7 ? 'score-high' : score >= 4 ? 'score-med' : 'score-low';
   const nivelColor = r.nivel === 'APROBADO' ? 'var(--blue)' : r.nivel === 'CON AJUSTES' ? 'var(--amber)' : 'var(--red)';
-
+ 
   const criteriaHTML = (r.criterios || []).map(c => {
     const icon = c.estado === 'pass' ? '✓' : c.estado === 'warn' ? '!' : '✗';
     const cls = c.estado === 'pass' ? 'crit-pass' : c.estado === 'warn' ? 'crit-warn' : 'crit-fail';
@@ -1002,55 +1167,57 @@ function renderResult(r, hook, canal) {
       </div>
     </div>`;
   }).join('');
-
+ 
+  // Reconocimiento badge
   const reconocimientoHTML = r.reconocimiento ? `
     <div style="background:var(--green-dim);border:1px solid var(--green);border-left:4px solid var(--green);padding:14px 18px;margin-bottom:24px;border-radius:0">
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--green);margin-bottom:6px">✓ Lo que sí funciona</div>
       <div style="font-size:13px;color:var(--text);line-height:1.6">${r.reconocimiento}</div>
     </div>` : '';
-
+ 
+  // Coaching section
   const c = r.coaching || {};
   const preguntasHTML = (c.preguntas_para_pensar || []).map((p,i) => `
     <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
       <div style="width:22px;height:22px;background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue-dark);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">${i+1}</div>
       <div style="font-size:13px;color:var(--text);line-height:1.6;font-style:italic">${p}</div>
     </div>`).join('');
-
+ 
   const coachingHTML = Object.keys(c).length ? `
     <div style="margin-bottom:24px">
       <div class="section-title">Coaching · Retroalimentación del modelo</div>
-
+ 
       ${c.por_que_no_detiene ? `<div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--blue);padding:16px 20px;margin-bottom:14px">
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);margin-bottom:8px">Por qué no detiene el scroll</div>
         <div style="font-size:13px;color:var(--text);line-height:1.7">${c.por_que_no_detiene}</div>
       </div>` : ''}
-
+ 
       ${c.tension_que_falta ? `<div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--amber);padding:16px 20px;margin-bottom:14px">
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);margin-bottom:8px">La tensión que falta activar</div>
         <div style="font-size:13px;color:var(--text);line-height:1.7">${c.tension_que_falta}</div>
       </div>` : ''}
-
+ 
       ${preguntasHTML ? `<div style="background:var(--surface);border:1px solid var(--border);padding:16px 20px;margin-bottom:14px">
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue-dark);margin-bottom:10px">Preguntas para pensar antes de reescribir</div>
         ${preguntasHTML}
       </div>` : ''}
-
+ 
       ${c.pistas_de_direccion ? `<div style="background:var(--blue-xdim);border:1px solid var(--blue-dim);padding:16px 20px;margin-bottom:14px">
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue-dark);margin-bottom:8px">💡 Pistas de dirección</div>
         <div style="font-size:13px;color:var(--text);line-height:1.7">${c.pistas_de_direccion}</div>
       </div>` : ''}
-
+ 
       ${c.ejemplos_de_patron ? `<div style="background:var(--surface);border:1px solid var(--border);padding:16px 20px;margin-bottom:14px">
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue-dark);margin-bottom:8px">Patrones de referencia</div>
         <div style="font-size:13px;color:var(--text);line-height:1.7">${c.ejemplos_de_patron}</div>
       </div>` : ''}
-
+ 
       ${c.reto_final ? `<div style="background:var(--blue-dark);padding:20px 24px;margin-bottom:0">
         <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.6);margin-bottom:8px">Tu reto</div>
         <div style="font-size:14px;color:white;line-height:1.7;font-weight:500">${c.reto_final}</div>
       </div>` : ''}
     </div>` : '';
-
+ 
   const fatigueAlert = r.alerta_fatiga ? `
     <div style="background:var(--amber-dim);border:1px solid var(--amber);padding:14px 18px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start">
       <div style="color:var(--amber);font-size:16px;flex-shrink:0">⚠</div>
@@ -1059,7 +1226,7 @@ function renderResult(r, hook, canal) {
         <div style="font-size:13px;color:var(--text);line-height:1.6">${r.alerta_fatiga_nota}</div>
       </div>
     </div>` : '';
-
+ 
   const hookTypeBadge = (r.tipo_hook_detectado || r.angulo_detectado) ? `
     <div style="margin-bottom:24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
       ${r.angulo_detectado ? `<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)">Ángulo:</span>
@@ -1067,12 +1234,13 @@ function renderResult(r, hook, canal) {
       ${r.tipo_hook_detectado ? `<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-left:8px">Tipo:</span>
       <span style="background:var(--surface2);border:1px solid var(--border);padding:4px 12px;font-size:12px;font-weight:600;color:var(--text)">${r.tipo_hook_detectado}</span>` : ''}
     </div>` : '';
-
+ 
   const rewritesHTML = (r.reescrituras || []).map(rw => `
     <div class="rewrite-card">
       <div class="rewrite-header">
         <span class="angle-tag">Ángulo</span>
         <span class="angle-name">${rw.angulo} — ${rw.descripcion}</span>
+        ${rw.tipo_hook ? `<span style="margin-left:auto;font-size:10px;color:var(--muted);font-family:'DM Mono',monospace">${rw.tipo_hook}</span>` : ''}
       </div>
       <div class="rewrite-body">
         <div class="rewrite-hook">${rw.hook}</div>
@@ -1085,11 +1253,15 @@ function renderResult(r, hook, canal) {
             <div class="ch-label">STORIES / REELS</div>
             <div class="ch-text">${rw.copy_alt || ''}</div>
           </div>
+          <div class="channel-line">
+            <div class="ch-label">EMAIL/CTA</div>
+            <div class="ch-text">${rw.subject_mail}</div>
+          </div>
         </div>
       </div>
     </div>
   `).join('');
-
+ 
   sec.innerHTML = `
     <div class="score-hero ${scoreClass}">
       <div class="score-circle">
@@ -1102,38 +1274,40 @@ function renderResult(r, hook, canal) {
         <div style="margin-top:8px;font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;padding:6px 10px;background:var(--surface2);border:1px solid var(--border);display:inline-block">"${hook}"</div>
       </div>
     </div>
-
+ 
     ${fatigueAlert}
     ${reconocimientoHTML}
     ${hookTypeBadge}
-
+ 
     <div style="margin-bottom:24px">
       <div class="section-title">Evaluación por criterio</div>
       <div class="criteria-results">${criteriaHTML}</div>
     </div>
-
+ 
     ${coachingHTML}
-
+ 
     <div style="margin-bottom:24px">
       <div class="section-title">Referencias · Así podría verse en cada ángulo</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6">Estos son ejemplos de dirección para que explores posibilidades — no son la respuesta final. Úsalos como punto de partida para encontrar tu propia versión.</div>
       ${rewritesHTML}
     </div>
-
+ 
     <button class="btn-reset" onclick="resetForm()">← Evaluar otra publicación</button>
   `;
 }
-
+ 
 function selectHookType(el) {
   document.querySelectorAll('.hook-type-pill').forEach(p => p.classList.remove('selected'));
   el.classList.add('selected');
 }
-
+ 
 function selectFunnel(el, val) {
   document.querySelectorAll('.funnel-btn').forEach(b => { b.classList.remove('selected'); delete b.dataset.val; });
   el.classList.add('selected');
   el.dataset.val = val;
 }
-
+ 
+ 
 function resetForm() {
   document.getElementById('resultSection').style.display = 'none';
   document.getElementById('resultSection').innerHTML = '';
@@ -1146,6 +1320,7 @@ function resetForm() {
   document.querySelectorAll('.hook-type-pill').forEach(p => p.classList.remove('selected'));
   document.querySelectorAll('.funnel-btn').forEach(b => { b.classList.remove('selected'); delete b.dataset.val; });
   hideError();
+  // NOTA: la API Key NO se borra al resetear el formulario — sigue disponible para la siguiente evaluación
 }
 </script>
 </body>
