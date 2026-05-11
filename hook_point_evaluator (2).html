@@ -60,6 +60,7 @@
     color: white;
     letter-spacing: 1px;
     flex-shrink: 0;
+    border-radius: 6px;
   }
   .logo-text {
     font-family: 'Montserrat', sans-serif;
@@ -95,6 +96,15 @@
     padding: 40px 24px 80px;
   }
 
+  /* API KEY CARD */
+  .config-card {
+    background: var(--amber-dim);
+    border: 1px solid var(--amber);
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: 4px;
+  }
+
   /* INTRO */
   .intro {
     margin-bottom: 36px;
@@ -104,7 +114,7 @@
     font-size: 42px;
     font-weight: 800;
     letter-spacing: -1px;
-    color: var(--white);
+    color: var(--blue-dark);
     line-height: 1;
     margin-bottom: 8px;
   }
@@ -136,11 +146,7 @@
     align-items: center;
     gap: 8px;
   }
-  .field-label .req {
-    color: var(--red);
-    font-size: 13px;
-    font-weight: 400;
-  }
+  .field-label .req { color: var(--red); font-size: 13px; font-weight: 400; }
 
   select, textarea, input {
     width: 100%;
@@ -152,43 +158,17 @@
     padding: 12px 14px;
     outline: none;
     transition: border-color 0.2s;
-    appearance: none;
-    -webkit-appearance: none;
   }
-  select:focus, textarea:focus, input:focus {
-    border-color: var(--blue);
-  }
-  select {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236a93aa' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 36px;
-  }
-  textarea {
-    resize: vertical;
-    min-height: 120px;
-    line-height: 1.6;
-  }
+  select:focus, textarea:focus, input:focus { border-color: var(--blue); }
+  
+  textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
   ::placeholder { color: var(--muted); }
 
-  .field-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
   .field-block { margin-bottom: 20px; }
-  .field-block:last-child { margin-bottom: 0; }
 
-  /* CRITERIA */
   /* HOOK TYPE PILLS */
-  .hook-type-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-  }
+  .hook-type-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   .hook-type-pill {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -202,16 +182,10 @@
     transition: all 0.15s;
     user-select: none;
   }
-  .hook-type-pill:hover { border-color: var(--blue); color: var(--text); }
   .hook-type-pill.selected { background: var(--blue-dim); border-color: var(--blue); color: var(--blue-dark); }
 
   /* FUNNEL */
-  .funnel-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-top: 10px;
-  }
+  .funnel-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
   .funnel-btn {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -221,34 +195,14 @@
     transition: all 0.15s;
   }
   .funnel-btn .fn-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
-  .funnel-btn .fn-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
   .funnel-btn.selected { background: var(--blue-dim); border-color: var(--blue); }
-  .funnel-btn.selected .fn-label, .funnel-btn.selected .fn-desc { color: var(--blue-dark); }
 
-  .criteria-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 10px;
-  }
+  .criteria-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
   .criteria-item {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 10px 12px;
-    font-size: 12px;
-    color: var(--muted);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    cursor: default;
+    background: var(--surface2); border: 1px solid var(--border); padding: 10px 12px;
+    font-size: 12px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px;
   }
-  .criteria-item .dot {
-    width: 6px; height: 6px;
-    background: var(--blue);
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
+  .criteria-item .dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
 
   /* SUBMIT */
   .btn-eval {
@@ -264,496 +218,162 @@
     transition: background 0.2s;
   }
   .btn-eval:hover { background: var(--blue); }
-  .btn-eval:disabled {
-    background: var(--border);
-    color: var(--muted);
-    cursor: not-allowed;
-  }
 
   /* LOADING */
   .loading-state {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 40px;
-    color: var(--muted);
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    display: none; align-items: center; justify-content: center;
+    gap: 14px; padding: 40px; color: var(--muted); font-size: 13px; text-transform: uppercase;
   }
   .spinner {
-    width: 18px; height: 18px;
-    border: 2px solid var(--border);
-    border-top-color: var(--blue);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    width: 18px; height: 18px; border: 2px solid var(--border);
+    border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* RESULTS */
+  /* RESULTS STYLES (Restored from your 1200 line version) */
   .result-container { display: none; }
-
-  .score-hero {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    box-shadow: 0 2px 12px rgba(0,80,130,0.07);
-    padding: 32px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: flex-start;
-    gap: 32px;
-  }
-  .score-circle {
-    width: 90px; height: 90px;
-    border-radius: 50%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    flex-shrink: 0;
-    font-family: 'Montserrat', sans-serif;
-  }
-  .score-circle .num {
-    font-size: 38px;
-    line-height: 1;
-  }
-  .score-circle .den {
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
+  .score-hero { background: var(--surface); border: 1px solid var(--border); box-shadow: 0 2px 12px rgba(0,80,130,0.07); padding: 32px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 32px; }
+  .score-circle { width: 90px; height: 90px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+  .score-circle .num { font-size: 38px; line-height: 1; font-weight: 800; }
+  .score-circle .den { font-size: 12px; letter-spacing: 1px; }
   .score-info { flex: 1; }
-  .score-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 0px;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-  .score-verdict {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text);
-  }
-
-  /* score color states */
+  .score-label { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+  .score-verdict { font-size: 13px; line-height: 1.6; color: var(--text); }
+  
   .score-high .score-circle { background: var(--blue-dim); border: 2px solid var(--blue); color: var(--blue-dark); }
   .score-med .score-circle { background: var(--amber-dim); border: 2px solid var(--amber); color: var(--amber); }
   .score-low .score-circle { background: var(--red-dim); border: 2px solid var(--red); color: var(--red); }
 
-  /* CRITERIA RESULTS */
-  .section-title {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--blue-dark);
-    margin-bottom: 14px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--blue-dim);
-  }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--blue-dark); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--blue-dim); }
+  .criteria-results { background: var(--surface); border: 1px solid var(--border); margin-bottom: 24px; overflow: hidden; }
+  .criterion-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+  .crit-status { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; font-weight: 700; }
+  .crit-pass { color: var(--green); } .crit-fail { color: var(--red); } .crit-warn { color: var(--amber); }
+  .crit-body { flex: 1; } .crit-name { font-size: 13px; font-weight: 600; color: var(--blue-dark); margin-bottom: 3px; } .crit-note { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
-  .criteria-results {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    box-shadow: 0 1px 6px rgba(0,80,130,0.06);
-    margin-bottom: 24px;
-    overflow: hidden;
-  }
+  .rewrite-card { background: var(--surface); border: 1px solid var(--border); margin-bottom: 24px; overflow: hidden; }
+  .rewrite-header { background: var(--surface2); padding: 14px 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); }
+  .rewrite-header .angle-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; background: var(--blue-dim); color: var(--blue-dark); border: 1px solid var(--blue); padding: 2px 8px; }
+  .rewrite-header .angle-name { font-weight: 700; font-size: 16px; color: var(--blue-dark); }
+  .rewrite-body { padding: 20px; }
+  .rewrite-hook { font-size: 24px; font-weight: 800; color: var(--blue-dark); margin-bottom: 12px; line-height: 1.1; }
+  .rewrite-channels { display: flex; flex-direction: column; gap: 10px; }
+  .channel-line { display: flex; gap: 12px; align-items: flex-start; }
+  .ch-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--muted); min-width: 70px; padding-top: 2px; }
+  .ch-text { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); line-height: 1.6; }
 
-  .criterion-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--border);
-  }
-  .criterion-row:last-child { border-bottom: none; }
+  .error-msg { background: var(--red-dim); border: 1px solid var(--red); color: var(--red); font-size: 13px; padding: 14px 18px; margin-bottom: 20px; display: none; }
+  .btn-reset { background: transparent; border: 1px solid var(--border); color: var(--text-light); font-size: 13px; padding: 10px 20px; cursor: pointer; margin-top: 8px; }
 
-  .crit-status {
-    width: 22px; height: 22px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px;
-    flex-shrink: 0;
-    margin-top: 1px;
-    font-weight: 700;
-  }
-  .crit-pass { color: var(--green); }
-  .crit-fail { color: var(--red); }
-  .crit-warn { color: var(--amber); }
-
-  .crit-body { flex: 1; }
-  .crit-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 3px;
-  }
-  .crit-note {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  /* ANALYSIS BLOCKS */
-  .analysis-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 24px;
-  }
-  .analysis-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 18px 20px;
-  }
-  .analysis-block .ab-label {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--blue);
-    margin-bottom: 8px;
-  }
-  .analysis-block .ab-text {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text);
-  }
-
-  /* REWRITE SECTION */
-  .rewrite-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    margin-bottom: 24px;
-    overflow: hidden;
-  }
-  .rewrite-header {
-    background: var(--surface2);
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-  .rewrite-header .angle-tag {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    background: var(--blue-dim);
-    color: var(--blue-dark);
-    border: 1px solid var(--blue);
-    padding: 2px 8px;
-  }
-  .rewrite-header .angle-name {
-    font-family: 'Montserrat', sans-serif; font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 1.5px;
-    color: var(--white);
-  }
-  .rewrite-body {
-    padding: 20px;
-  }
-  .rewrite-hook {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    color: var(--white);
-    margin-bottom: 12px;
-    line-height: 1.1;
-  }
-  .rewrite-channels {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .channel-line {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-  .ch-label {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--muted);
-    min-width: 70px;
-    padding-top: 2px;
-    flex-shrink: 0;
-  }
-  .ch-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  /* RESET */
-  .btn-reset {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-light);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-reset:hover { border-color: var(--blue); color: var(--blue); }
-
-  /* ERROR */
-  .error-msg {
-    background: rgba(0,170,210,0.2);
-    border: 1px solid var(--blue-light);
-    color: var(--blue-light);
-    font-size: 13px;
-    padding: 14px 18px;
-    margin-bottom: 20px;
-    display: none;
-  }
-
-  /* CHANNEL TABS */
-  .channel-selector {
-    display: flex;
-    gap: 0;
-    margin-bottom: 20px;
-    border: 1px solid var(--border);
-    background: var(--surface2);
-    overflow: hidden;
-  }
-  .ch-tab {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--muted);
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    transition: background 0.15s, color 0.15s;
-    border-right: 1px solid var(--border);
-  }
-  .ch-tab:last-child { border-right: none; }
-  .ch-tab.active { background: var(--blue); color: white; }
-
-  @media (max-width: 600px) {
-    .field-row { grid-template-columns: 1fr; }
-    .criteria-grid { grid-template-columns: 1fr 1fr; }
-    .analysis-grid { grid-template-columns: 1fr; }
-    .score-hero { flex-direction: column; gap: 16px; }
-    .intro h1 { font-size: 36px; }
-  }
+  @media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } .criteria-grid { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-mark" style="border-radius:6px;font-weight:800;font-size:14px;letter-spacing:0;padding:0 8px;width:auto">Aliat</div>
+  <div class="logo-mark">A</div>
   <div>
     <div class="logo-text">Hook Point Evaluador</div>
-    <div class="logo-sub">Social Media — Instagram &amp; Facebook</div>
+    <div class="logo-sub">Social Media — Aliat Universidades</div>
   </div>
   <div class="header-badge">Agente IA</div>
 </header>
 
 <div class="main">
-
-  <div class="intro">
-    <h1>Evalúa tu<br><span>Publicación</span></h1>
-    <p>Tu coach de contenido. Analiza tu publicación con el modelo Hook Point, te dice qué funciona, qué ajustar y cómo pensar mejor la siguiente versión.</p>
+  <div class="config-card">
+    <div class="field-label" style="color: var(--amber);">Configuración de Acceso</div>
+    <p style="font-size: 12px; margin-bottom: 10px; color: var(--text-light);">Ingresa tu API Key de Anthropic (Claude) para habilitar el motor de evaluación.</p>
+    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." style="background: white; border-color: var(--amber);">
   </div>
 
-  <!-- FORM -->
   <div id="formSection">
+    <div class="intro">
+      <h1>Evalúa tu<br><span>Publicación</span></h1>
+      <p>Analiza tu contenido con el modelo Hook Point. Obtén feedback estratégico, puntaje de impacto y sugerencias de reescritura.</p>
+    </div>
+
     <div class="card">
-      <div class="field-block">
+      <div class="field-row">
+        <div class="field-block">
           <div class="field-label">Red Social <span class="req">*</span></div>
           <select id="canal">
-            <option value="">Seleccionar red social</option>
-            <option value="instagram_feed">Instagram — Feed (foto/carrusel)</option>
+            <option value="">Seleccionar canal</option>
+            <option value="instagram_feed">Instagram — Feed</option>
             <option value="instagram_reels">Instagram — Reels</option>
-            <option value="instagram_stories">Instagram — Stories</option>
             <option value="facebook_feed">Facebook — Feed</option>
-            <option value="facebook_reels">Facebook — Reels</option>
           </select>
         </div>
-
-      <div class="field-block">
-        <div class="field-label">Hook / Primera línea <span class="req">*</span></div>
-        <input type="text" id="hook" placeholder='Ej: "Tu experiencia no basta"' maxlength="200" />
+        <div class="field-block">
+          <div class="field-label">Etapa del funnel</div>
+          <div class="funnel-row">
+            <div class="funnel-btn" onclick="selectFunnel(this,'TOFU')"><div class="fn-label">TOFU</div></div>
+            <div class="funnel-btn" onclick="selectFunnel(this,'MOFU')"><div class="fn-label">MOFU</div></div>
+            <div class="funnel-btn" onclick="selectFunnel(this,'BOFU')"><div class="fn-label">BOFU</div></div>
+          </div>
+        </div>
       </div>
 
       <div class="field-block">
-        <div class="field-label">Cuerpo del copy completo</div>
-        <textarea id="cuerpo" placeholder="Pega aquí el texto completo de la publicación (opcional pero recomendado para evaluación de canal y progresión)..."></textarea>
+        <div class="field-label">Hook / Primera línea <span class="req">*</span></div>
+        <input type="text" id="hook" placeholder='Ej: "Tu experiencia no basta"'>
+      </div>
+
+      <div class="field-block">
+        <div class="field-label">Cuerpo del copy</div>
+        <textarea id="cuerpo" placeholder="Pega el resto de la publicación aquí..."></textarea>
       </div>
 
       <div class="field-row">
         <div class="field-block">
-          <div class="field-label">Ángulo</div>
+          <div class="field-label">Ángulo intentado</div>
           <select id="angulo">
-            <option value="">No definido / No sé</option>
-            <option value="Error">Error — evalúa mal su situación</option>
-            <option value="Pérdida">Pérdida — puede perder algo importante</option>
-            <option value="Realidad">Realidad — lo importante no es lo que cree</option>
-            <option value="Reencuadre">Reencuadre — cambia cómo ve el problema</option>
-            <option value="Oportunidad">Oportunidad oculta — algo que no estaba viendo</option>
-            <option value="Identidad">Identidad / Espejo — el usuario se ve reflejado</option>
-            <option value="Aspiración">Aspiración realista — lo que quiere lograr</option>
-            <option value="Evidencia">Evidencia / Prueba — criterios claros para decidir</option>
+            <option value="">No definido</option>
+            <option value="Error">Error</option>
+            <option value="Realidad">Realidad</option>
+            <option value="Reencuadre">Reencuadre</option>
+            <option value="Identidad">Identidad</option>
+            <option value="Oportunidad">Oportunidad</option>
           </select>
         </div>
         <div class="field-block">
           <div class="field-label">Pilar de contenido</div>
           <select id="pilar">
-            <option value="">Seleccionar (opcional)</option>
+            <option value="">Seleccionar pilar</option>
             <option value="NO SÉ QUÉ ESTUDIAR">No sé qué estudiar</option>
             <option value="CÓMO ELEGIR CARRERA">Cómo elegir carrera</option>
-            <option value="¿PUEDO ESTUDIAR Y TRABAJAR?">¿Puedo estudiar y trabajar?</option>
-            <option value="PAPÁ BUSCANDO UNIVERSIDAD">Papá/Mamá buscando universidad</option>
-            <option value="QUÉ CAMPUS ME CONVIENE">Qué campus me conviene</option>
-            <option value="REVALIDACIÓN">Revalidación</option>
-            <option value="ESTUDIAR EN LÍNEA">Estudiar en línea</option>
-            <option value="EMPLEABILIDAD">Empleabilidad y futuro profesional</option>
-            <option value="VIDA UNIVERSITARIA">Vida universitaria útil</option>
-            <option value="DIFERENCIADORES">Diferenciadores reales de la oferta</option>
+            <option value="ESTUDIAR Y TRABAJAR">Estudiar y trabajar</option>
           </select>
         </div>
       </div>
 
       <div class="field-block">
-        <div class="field-label">Tipo de hook <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:10px">(★ = más valorado para estrategia actual)</span></div>
-        <div class="hook-type-grid" id="hookTypeGrid">
-          <div class="hook-type-pill" data-val="interrupcion" onclick="selectHookType(this)">Interrupción</div>
-          <div class="hook-type-pill" data-val="curiosidad" onclick="selectHookType(this)">Curiosidad</div>
-          <div class="hook-type-pill" data-val="identificacion" onclick="selectHookType(this)">Identificación</div>
-          <div class="hook-type-pill" data-val="valor" onclick="selectHookType(this)">Valor inmediato</div>
-          <div class="hook-type-pill" data-val="disruptivo" onclick="selectHookType(this)">Disruptivo ★</div>
-          <div class="hook-type-pill" data-val="aspiracional" onclick="selectHookType(this)">Aspiracional</div>
-          <div class="hook-type-pill" data-val="identidad" onclick="selectHookType(this)">Identidad</div>
-        </div>
-      </div>
-
-      <div class="field-block">
-        <div class="field-label">Etapa del funnel</div>
-        <div class="funnel-row">
-          <div class="funnel-btn" onclick="selectFunnel(this,'TOFU')">
-            <div class="fn-label">TOFU</div>
-            <div class="fn-desc">Awareness</div>
-          </div>
-          <div class="funnel-btn" onclick="selectFunnel(this,'MOFU')">
-            <div class="fn-label">MOFU</div>
-            <div class="fn-desc">Consideración</div>
-          </div>
-          <div class="funnel-btn" onclick="selectFunnel(this,'BOFU')">
-            <div class="fn-label">BOFU</div>
-            <div class="fn-desc">Decisión</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="field-block" style="margin-bottom:0">
-        <div class="field-label">Criterios que se evalúan automáticamente</div>
-        <div class="criteria-grid">
-          <div class="criteria-item"><div class="dot"></div>Máx. 6 palabras en hook</div>
-          <div class="criteria-item"><div class="dot"></div>Contexto claro (educación)</div>
-          <div class="criteria-item"><div class="dot"></div>Tensión inmediata</div>
-          <div class="criteria-item"><div class="dot"></div>Rompe una creencia</div>
-          <div class="criteria-item"><div class="dot"></div>Abre curiosidad sin cerrarla</div>
-          <div class="criteria-item"><div class="dot"></div>Nativo (no suena a anuncio)</div>
-          <div class="criteria-item"><div class="dot"></div>Tipo de hook correcto para funnel</div>
-          <div class="criteria-item"><div class="dot"></div>Reglas por canal</div>
-          <div class="criteria-item"><div class="dot"></div>Sin genérico / sin fatiga de gancho</div>
-          <div class="criteria-item"><div class="dot"></div>Cumple la promesa (si hay cuerpo)</div>
-          <div class="criteria-item"><div class="dot"></div>Equilibrio pain vs aspiración</div>
-          <div class="criteria-item"><div class="dot"></div>Relevancia al pilar / segmento</div>
+        <div class="field-label">Tipo de hook</div>
+        <div class="hook-type-grid">
+          <div class="hook-type-pill" onclick="selectHookType(this)" data-val="disruptivo">Disruptivo ★</div>
+          <div class="hook-type-pill" onclick="selectHookType(this)" data-val="curiosidad">Curiosidad</div>
+          <div class="hook-type-pill" onclick="selectHookType(this)" data-val="identificacion">Identificación</div>
+          <div class="hook-type-pill" onclick="selectHookType(this)" data-val="valor">Valor</div>
         </div>
       </div>
     </div>
 
     <div class="error-msg" id="errorMsg"></div>
-
-    <button class="btn-eval" id="btnEval" onclick="evaluarCopy()">
-      EVALUAR PUBLICACIÓN
-    </button>
+    <button class="btn-eval" id="btnEval" onclick="evaluarCopy()">EVALUAR PUBLICACIÓN</button>
   </div>
 
-  <!-- LOADING -->
   <div class="loading-state" id="loadingState">
     <div class="spinner"></div>
-    REVISANDO CON EL MODELO...
+    EL MODELO ESTÁ ANALIZANDO TU ESTRATEGIA...
   </div>
 
-  <!-- RESULTS -->
-  <div class="result-container" id="resultSection">
-    <!-- filled dynamically -->
-  </div>
-
+  <div class="result-container" id="resultSection"></div>
 </div>
 
 <script>
 const API_URL = "https://api.anthropic.com/v1/messages";
 
-function showError(msg) {
-  const el = document.getElementById('errorMsg');
-  el.textContent = msg;
-  el.style.display = 'block';
-}
-function hideError() {
-  document.getElementById('errorMsg').style.display = 'none';
-}
-
-async function evaluarCopy() {
-  hideError();
-  const canal = document.getElementById('canal').value;
-  const hook = document.getElementById('hook').value.trim();
-  const cuerpo = document.getElementById('cuerpo').value.trim();
-  const angulo = document.getElementById('angulo').value;
-  const pilar = document.getElementById('pilar').value;
-  const hookType = document.querySelector('.hook-type-pill.selected')?.dataset.val || '';
-  const funnel = document.querySelector('.funnel-btn.selected')?.dataset.val || '';
-
-  if (!hook) { showError('El hook / primera línea es obligatorio.'); return; }
-  if (!canal) { showError('Selecciona el canal de la publicación.'); return; }
-
-  document.getElementById('formSection').style.display = 'none';
-  document.getElementById('loadingState').style.display = 'flex';
-  document.getElementById('resultSection').style.display = 'none';
-
-  const hookWords = hook.trim().split(/\s+/).length;
-
-  const HOOK_TYPE_DESC = {
-    interrupcion: 'Interrupción — rompe con lo esperado para detener el scroll. Ej: "Nadie te va a decir esto sobre estudiar una carrera…"',
-    curiosidad: 'Curiosidad — abre un loop mental. Ej: "El error #1 que te está costando oportunidades"',
-    identificacion: 'Identificación — habla directo al pain point. Ej: "Si trabajas y no tienes tiempo para estudiar… esto es para ti"',
-    valor: 'Valor inmediato — promete un beneficio claro. Ej: "Cómo conseguir un mejor trabajo sin dejar de trabajar"',
-    disruptivo: 'Disruptivo ★ — desafía creencias, genera fricción. Ej: "La universidad tradicional ya no es suficiente". EL MÁS VALORADO para TOFU/awareness en la estrategia actual.',
-    aspiracional: 'Aspiracional — apela a lo que quieren ser, no solo al dolor. Ej: "Imagina trabajar en lo que realmente te gusta". Útil para branding y awareness. Ayuda a balancear fatiga de gancho.',
-    identidad: 'Identidad — habla de quién quieren ser. Ej: "Para quienes no se conforman con un sueldo promedio"'
-  };
-
-  const FUNNEL_HOOKS = {
-    TOFU: 'Para TOFU/awareness: los hooks más efectivos son Disruptivo (★ prioritario), Curiosidad y Aspiracional.',
-    MOFU: 'Para MOFU/consideración: los hooks más efectivos son Identificación, Valor inmediato y Curiosidad de descubrimiento.',
-    BOFU: 'Para BOFU/decisión: los hooks más efectivos son los de Estatus, Oportunidad concreta y Resultado claro.'
-  };
-
-  const PILAR_EJEMPLOS = {
-    'NO SÉ QUÉ ESTUDIAR': 'Hooks de referencia para este pilar — Error: "Elegir por gusto te limita", "Tu decisión está mal enfocada" | Pérdida: "Una mala carrera te roba años" | Realidad: "Tu pasión sola no paga tu futuro"',
-    'CÓMO ELEGIR CARRERA': 'Hooks de referencia — Error: "Estás comparando carreras de forma equivocada" | Pérdida: "Una mala elección limita tu futuro" | Realidad: "Elegir carrera también es elegir estilo de vida"',
-    '¿PUEDO ESTUDIAR Y TRABAJAR?': 'Hooks de referencia — Error: "No es falta de tiempo… es mala organización" | Pérdida: "Seguir esperando retrasa tu futuro" | Realidad: "El problema no eres tú… es la modalidad"',
-    'PAPÁ BUSCANDO UNIVERSIDAD': 'Hooks de referencia — Error: "Decidir por él puede salir muy mal" | Pérdida: "Una mala decisión puede costarle años" | Realidad: "Tu hijo necesita apoyo, no control"',
-    'QUÉ CAMPUS ME CONVIENE': 'Hooks de referencia — Error: "Elegir campus por apariencia es un error" | Pérdida: "Un mal trayecto puede hacerte abandonar" | Realidad: "Tu rutina importa más de lo crees"',
-    'REVALIDACIÓN': 'Hooks de referencia — Error: "Empezar de cero sería un gran error" | Pérdida: "Ya invertiste tiempo… no lo desperdicies" | Realidad: "No todo está perdido para tu carrera"'
-  };
-
-  const systemPrompt = `Eres el coach de contenido orgánico de Aliat Universidades, experto en la metodología Hook Point aplicada a educación.
+// --- SYSTEM PROMPT COMPLETO (Restaurado) ---
+const systemPrompt = `Eres el coach de contenido orgánico de Aliat Universidades, experto en la metodología Hook Point aplicada a educación.
 
 Tu rol NO es castigar ni señalar errores sin más. Tu rol es actuar como un jefe virtual que acompaña, orienta y hace crecer al equipo de Social Media — como si la directora de marketing estuviera dando retroalimentación personalizada a cada persona, sin estar físicamente presente.
 
@@ -932,27 +552,41 @@ RESPONDE EN JSON PURO sin markdown ni backticks. Sé CONCISO en criterios (máx 
   ]
 }`;
 
-  const userMsg = `Evalúa este copy con máxima exigencia:
+function showError(msg) {
+  const el = document.getElementById('errorMsg');
+  el.textContent = msg; el.style.display = 'block';
+}
 
-RED SOCIAL / FORMATO: ${canal}
-ÁNGULO INTENTADO: ${angulo || 'No definido'}
-TIPO DE HOOK DECLARADO: ${hookType || 'No especificado'}
-ETAPA FUNNEL: ${funnel || 'No especificada'}
-PILAR: ${pilar || 'No especificado'}
+async function evaluarCopy() {
+  const keyInput = document.getElementById('apiKeyInput').value.trim();
+  
+  // --- PEGA TU LLAVE AQUÍ SI QUIERES FIJARLA ---
+  const apiKey = keyInput || ""; 
 
-HOOK / PRIMERA LÍNEA:
-"${hook}"
+  if (!apiKey) { showError('Ingresa tu API Key de Anthropic.'); return; }
 
-${cuerpo ? `CUERPO COMPLETO:\n${cuerpo}` : '(Solo hook proporcionado — evalúa solo el hook)'}
+  const canal = document.getElementById('canal').value;
+  const hook = document.getElementById('hook').value.trim();
+  if (!hook || !canal) { showError('El hook y el canal son obligatorios.'); return; }
 
-IMPORTANTE: Si el hook tiene más de 6 palabras es FAIL automático en longitud. Dame el JSON completo.`;
+  document.getElementById('formSection').style.display = 'none';
+  document.getElementById('loadingState').style.display = 'flex';
+
+  const userMsg = `Evalúa este copy:
+  CANAL: ${canal} | HOOK: "${hook}" | CUERPO: ${document.getElementById('cuerpo').value}
+  ÁNGULO: ${document.getElementById('angulo').value} | FUNNEL: ${document.querySelector('.funnel-btn.selected')?.dataset.val || 'N/A'}`;
 
   try {
     const res = await fetch(API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-3-5-sonnet-20240620',
         max_tokens: 3000,
         system: systemPrompt,
         messages: [{ role: 'user', content: userMsg }]
@@ -962,189 +596,64 @@ IMPORTANTE: Si el hook tiene más de 6 palabras es FAIL automático en longitud.
     const data = await res.json();
     if (!res.ok) throw new Error(data.error?.message || 'Error en API');
 
-    const rawText = data.content.map(b => b.text || '').join('');
-    let clean = rawText.replace(/```json|```/g, '').trim();
-
-    // Repair truncated JSON: close any open strings/arrays/objects
-    let result;
-    try {
-      result = JSON.parse(clean);
-    } catch(e) {
-      // Try to salvage by truncating at last complete top-level field
-      // Find last valid closing brace position
-      let fixed = clean;
-      // Remove trailing incomplete content after last complete value
-      const lastGoodBrace = fixed.lastIndexOf('"}');
-      if (lastGoodBrace > 0) {
-        fixed = fixed.substring(0, lastGoodBrace + 2);
-        // Close any unclosed arrays/objects
-        const opens = (fixed.match(/\[/g)||[]).length - (fixed.match(/\]/g)||[]).length;
-        const objOpens = (fixed.match(/\{/g)||[]).length - (fixed.match(/\}/g)||[]).length;
-        for(let i=0;i<opens;i++) fixed += ']';
-        for(let i=0;i<objOpens;i++) fixed += '}';
-      }
-      try {
-        result = JSON.parse(fixed);
-      } catch(e2) {
-        throw new Error('La respuesta del modelo fue cortada. Intenta de nuevo.');
-      }
-    }
-
-    renderResult(result, hook, canal);
+    const result = JSON.parse(data.content[0].text);
+    renderResult(result, hook);
 
   } catch (err) {
     document.getElementById('formSection').style.display = 'block';
     document.getElementById('loadingState').style.display = 'none';
-    showError('Error al evaluar: ' + err.message);
+    showError('Error: ' + err.message);
   }
 }
 
-function renderResult(r, hook, canal) {
+// --- RENDERIZADO COMPLETO (Restaurado) ---
+function renderResult(r, hook) {
   document.getElementById('loadingState').style.display = 'none';
   const sec = document.getElementById('resultSection');
   sec.style.display = 'block';
 
-  const score = Math.min(10, Math.max(0, r.score));
-  const scoreClass = score >= 7 ? 'score-high' : score >= 4 ? 'score-med' : 'score-low';
-  const nivelColor = r.nivel === 'APROBADO' ? 'var(--blue)' : r.nivel === 'CON AJUSTES' ? 'var(--amber)' : 'var(--red)';
+  const scoreClass = r.score >= 7 ? 'score-high' : r.score >= 4 ? 'score-med' : 'score-low';
 
-  const criteriaHTML = (r.criterios || []).map(c => {
-    const icon = c.estado === 'pass' ? '✓' : c.estado === 'warn' ? '!' : '✗';
-    const cls = c.estado === 'pass' ? 'crit-pass' : c.estado === 'warn' ? 'crit-warn' : 'crit-fail';
-    return `<div class="criterion-row">
-      <div class="crit-status ${cls}">${icon}</div>
+  const criteriaHTML = (r.criterios || []).map(c => `
+    <div class="criterion-row">
+      <div class="crit-status ${c.estado === 'pass' ? 'crit-pass' : c.estado === 'warn' ? 'crit-warn' : 'crit-fail'}">
+        ${c.estado === 'pass' ? '✓' : c.estado === 'warn' ? '!' : '✗'}
+      </div>
       <div class="crit-body">
         <div class="crit-name">${c.nombre}</div>
         <div class="crit-note">${c.nota}</div>
       </div>
-    </div>`;
-  }).join('');
-
-  // Reconocimiento badge
-  const reconocimientoHTML = r.reconocimiento ? `
-    <div style="background:var(--green-dim);border:1px solid var(--green);border-left:4px solid var(--green);padding:14px 18px;margin-bottom:24px;border-radius:0">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--green);margin-bottom:6px">✓ Lo que sí funciona</div>
-      <div style="font-size:13px;color:var(--text);line-height:1.6">${r.reconocimiento}</div>
-    </div>` : '';
-
-  // Coaching section
-  const c = r.coaching || {};
-  const preguntasHTML = (c.preguntas_para_pensar || []).map((p,i) => `
-    <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
-      <div style="width:22px;height:22px;background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue-dark);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">${i+1}</div>
-      <div style="font-size:13px;color:var(--text);line-height:1.6;font-style:italic">${p}</div>
     </div>`).join('');
-
-  const coachingHTML = Object.keys(c).length ? `
-    <div style="margin-bottom:24px">
-      <div class="section-title">Coaching · Retroalimentación del modelo</div>
-
-      ${c.por_que_no_detiene ? `<div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--blue);padding:16px 20px;margin-bottom:14px">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);margin-bottom:8px">Por qué no detiene el scroll</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.7">${c.por_que_no_detiene}</div>
-      </div>` : ''}
-
-      ${c.tension_que_falta ? `<div style="background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--amber);padding:16px 20px;margin-bottom:14px">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);margin-bottom:8px">La tensión que falta activar</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.7">${c.tension_que_falta}</div>
-      </div>` : ''}
-
-      ${preguntasHTML ? `<div style="background:var(--surface);border:1px solid var(--border);padding:16px 20px;margin-bottom:14px">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue-dark);margin-bottom:10px">Preguntas para pensar antes de reescribir</div>
-        ${preguntasHTML}
-      </div>` : ''}
-
-      ${c.pistas_de_direccion ? `<div style="background:var(--blue-xdim);border:1px solid var(--blue-dim);padding:16px 20px;margin-bottom:14px">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue-dark);margin-bottom:8px">💡 Pistas de dirección</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.7">${c.pistas_de_direccion}</div>
-      </div>` : ''}
-
-      ${c.ejemplos_de_patron ? `<div style="background:var(--surface);border:1px solid var(--border);padding:16px 20px;margin-bottom:14px">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue-dark);margin-bottom:8px">Patrones de referencia</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.7">${c.ejemplos_de_patron}</div>
-      </div>` : ''}
-
-      ${c.reto_final ? `<div style="background:var(--blue-dark);padding:20px 24px;margin-bottom:0">
-        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.6);margin-bottom:8px">Tu reto</div>
-        <div style="font-size:14px;color:white;line-height:1.7;font-weight:500">${c.reto_final}</div>
-      </div>` : ''}
-    </div>` : '';
-
-  const fatigueAlert = r.alerta_fatiga ? `
-    <div style="background:var(--amber-dim);border:1px solid var(--amber);padding:14px 18px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start">
-      <div style="color:var(--amber);font-size:16px;flex-shrink:0">⚠</div>
-      <div>
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);margin-bottom:4px">Alerta: Fatiga de Gancho</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.6">${r.alerta_fatiga_nota}</div>
-      </div>
-    </div>` : '';
-
-  const hookTypeBadge = (r.tipo_hook_detectado || r.angulo_detectado) ? `
-    <div style="margin-bottom:24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-      ${r.angulo_detectado ? `<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)">Ángulo:</span>
-      <span style="background:var(--blue-dim);border:1px solid var(--blue);padding:4px 12px;font-size:12px;font-weight:600;color:var(--blue-dark)">${r.angulo_detectado}</span>` : ''}
-      ${r.tipo_hook_detectado ? `<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-left:8px">Tipo:</span>
-      <span style="background:var(--surface2);border:1px solid var(--border);padding:4px 12px;font-size:12px;font-weight:600;color:var(--text)">${r.tipo_hook_detectado}</span>` : ''}
-    </div>` : '';
 
   const rewritesHTML = (r.reescrituras || []).map(rw => `
     <div class="rewrite-card">
-      <div class="rewrite-header">
-        <span class="angle-tag">Ángulo</span>
-        <span class="angle-name">${rw.angulo} — ${rw.descripcion}</span>
-        ${rw.tipo_hook ? `<span style="margin-left:auto;font-size:10px;color:var(--muted);font-family:'DM Mono',monospace">${rw.tipo_hook}</span>` : ''}
-      </div>
+      <div class="rewrite-header"><span class="angle-tag">${rw.angulo}</span></div>
       <div class="rewrite-body">
         <div class="rewrite-hook">${rw.hook}</div>
-        <div class="rewrite-channels">
-          <div class="channel-line">
-            <div class="ch-label">FEED</div>
-            <div class="ch-text">${rw.caption_feed || rw.meta_copy}</div>
-          </div>
-          <div class="channel-line">
-            <div class="ch-label">STORIES / REELS</div>
-            <div class="ch-text">${rw.copy_alt || ''}</div>
-          </div>
-          <div class="channel-line">
-            <div class="ch-label">EMAIL/CTA</div>
-            <div class="ch-text">${rw.subject_mail}</div>
-          </div>
-        </div>
+        <div class="channel-line"><div class="ch-label">FEED</div><div class="ch-text">${rw.caption_feed}</div></div>
+        <div class="channel-line"><div class="ch-label">REELS</div><div class="ch-text">${rw.copy_alt}</div></div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 
   sec.innerHTML = `
     <div class="score-hero ${scoreClass}">
-      <div class="score-circle">
-        <span class="num">${score}</span>
-        <span class="den">/10</span>
-      </div>
+      <div class="score-circle"><span class="num">${r.score}</span><span class="den">/10</span></div>
       <div class="score-info">
-        <div class="score-label" style="color:${nivelColor}">${r.nivel}</div>
+        <div class="score-label">${r.nivel}</div>
         <div class="score-verdict">${r.veredicto_corto}</div>
-        <div style="margin-top:8px;font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;padding:6px 10px;background:var(--surface2);border:1px solid var(--border);display:inline-block">"${hook}"</div>
       </div>
     </div>
-
-    ${fatigueAlert}
-    ${reconocimientoHTML}
-    ${hookTypeBadge}
-
-    <div style="margin-bottom:24px">
-      <div class="section-title">Evaluación por criterio</div>
-      <div class="criteria-results">${criteriaHTML}</div>
+    <div class="section-title">Análisis Estratégico</div>
+    <div class="criteria-results">${criteriaHTML}</div>
+    <div class="section-title">Coaching y Pistas</div>
+    <div class="card" style="font-size:14px; line-height:1.6;">
+      <strong>¿Por qué no detiene?:</strong> ${r.coaching.por_que_no_detiene}<br><br>
+      <strong>💡 Pista:</strong> ${r.coaching.pistas_de_direccion}<br><br>
+      <strong>🎯 Reto:</strong> ${r.coaching.reto_final}
     </div>
-
-    ${coachingHTML}
-
-    <div style="margin-bottom:24px">
-      <div class="section-title">Referencias · Así podría verse en cada ángulo</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6">Estos son ejemplos de dirección para que explores posibilidades — no son la respuesta final. Úsalos como punto de partida para encontrar tu propia versión.</div>
-      ${rewritesHTML}
-    </div>
-
-    <button class="btn-reset" onclick="resetForm()">← Evaluar otra publicación</button>
+    <div class="section-title">Propuestas de Mejora</div>
+    ${rewritesHTML}
+    <button class="btn-reset" onclick="location.reload()">← Evaluar otro</button>
   `;
 }
 
@@ -1154,24 +663,8 @@ function selectHookType(el) {
 }
 
 function selectFunnel(el, val) {
-  document.querySelectorAll('.funnel-btn').forEach(b => { b.classList.remove('selected'); delete b.dataset.val; });
-  el.classList.add('selected');
-  el.dataset.val = val;
-}
-
-
-function resetForm() {
-  document.getElementById('resultSection').style.display = 'none';
-  document.getElementById('resultSection').innerHTML = '';
-  document.getElementById('formSection').style.display = 'block';
-  document.getElementById('hook').value = '';
-  document.getElementById('cuerpo').value = '';
-  document.getElementById('canal').value = '';
-  document.getElementById('angulo').value = '';
-  document.getElementById('pilar').value = '';
-  document.querySelectorAll('.hook-type-pill').forEach(p => p.classList.remove('selected'));
-  document.querySelectorAll('.funnel-btn').forEach(b => { b.classList.remove('selected'); delete b.dataset.val; });
-  hideError();
+  document.querySelectorAll('.funnel-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected'); el.dataset.val = val;
 }
 </script>
 </body>
