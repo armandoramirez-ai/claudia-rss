@@ -52,21 +52,20 @@
     z-index: 100;
   }
   .logo-mark {
-    width: 36px; height: 36px;
+    width: auto; height: 36px;
     background: var(--blue-light);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    font-size: 14px; font-weight: 800;
     color: white;
-    letter-spacing: 1px;
-    flex-shrink: 0;
+    padding: 0 12px;
     border-radius: 6px;
+    flex-shrink: 0;
   }
   .logo-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     font-weight: 800;
-    letter-spacing: 1px;
     color: var(--white);
     line-height: 1;
   }
@@ -84,7 +83,6 @@
     color: var(--blue-light);
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 4px 10px;
   }
@@ -96,13 +94,13 @@
     padding: 40px 24px 80px;
   }
 
-  /* API KEY CARD */
+  /* API CONFIG CARD */
   .config-card {
     background: var(--amber-dim);
     border: 1px solid var(--amber);
-    padding: 20px;
-    margin-bottom: 24px;
-    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(224, 138, 0, 0.1);
   }
 
   /* INTRO */
@@ -115,7 +113,7 @@
     font-weight: 800;
     letter-spacing: -1px;
     color: var(--blue-dark);
-    line-height: 1;
+    line-height: 1.1;
     margin-bottom: 8px;
   }
   .intro h1 span { color: var(--blue); }
@@ -146,7 +144,11 @@
     align-items: center;
     gap: 8px;
   }
-  .field-label .req { color: var(--red); font-size: 13px; font-weight: 400; }
+  .field-label .req {
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 400;
+  }
 
   select, textarea, input {
     width: 100%;
@@ -159,16 +161,32 @@
     outline: none;
     transition: border-color 0.2s;
   }
-  select:focus, textarea:focus, input:focus { border-color: var(--blue); }
+  select:focus, textarea:focus, input:focus {
+    border-color: var(--blue);
+  }
   
-  textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+  }
   ::placeholder { color: var(--muted); }
 
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
   .field-block { margin-bottom: 20px; }
 
   /* HOOK TYPE PILLS */
-  .hook-type-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .hook-type-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
   .hook-type-pill {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -182,10 +200,16 @@
     transition: all 0.15s;
     user-select: none;
   }
+  .hook-type-pill:hover { border-color: var(--blue); color: var(--text); }
   .hook-type-pill.selected { background: var(--blue-dim); border-color: var(--blue); color: var(--blue-dark); }
 
   /* FUNNEL */
-  .funnel-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+  .funnel-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+  }
   .funnel-btn {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -195,14 +219,33 @@
     transition: all 0.15s;
   }
   .funnel-btn .fn-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .funnel-btn .fn-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
   .funnel-btn.selected { background: var(--blue-dim); border-color: var(--blue); }
+  .funnel-btn.selected .fn-label, .funnel-btn.selected .fn-desc { color: var(--blue-dark); }
 
-  .criteria-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
-  .criteria-item {
-    background: var(--surface2); border: 1px solid var(--border); padding: 10px 12px;
-    font-size: 12px; color: var(--muted); display: flex; align-items: flex-start; gap: 8px;
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
   }
-  .criteria-item .dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+  .criteria-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .criteria-item .dot {
+    width: 6px; height: 6px;
+    background: var(--blue);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
 
   /* SUBMIT */
   .btn-eval {
@@ -221,19 +264,43 @@
 
   /* LOADING */
   .loading-state {
-    display: none; align-items: center; justify-content: center;
-    gap: 14px; padding: 40px; color: var(--muted); font-size: 13px; text-transform: uppercase;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 40px;
+    color: var(--muted);
+    font-size: 13px;
+    text-transform: uppercase;
   }
   .spinner {
-    width: 18px; height: 18px; border: 2px solid var(--border);
-    border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite;
+    width: 18px; height: 18px;
+    border: 2px solid var(--border);
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* RESULTS STYLES (Restored from your 1200 line version) */
+  /* RESULTS STYLES (Your Original Logic) */
   .result-container { display: none; }
-  .score-hero { background: var(--surface); border: 1px solid var(--border); box-shadow: 0 2px 12px rgba(0,80,130,0.07); padding: 32px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 32px; }
-  .score-circle { width: 90px; height: 90px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+  .score-hero {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,80,130,0.07);
+    padding: 32px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .score-circle {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
   .score-circle .num { font-size: 38px; line-height: 1; font-weight: 800; }
   .score-circle .den { font-size: 12px; letter-spacing: 1px; }
   .score-info { flex: 1; }
@@ -244,10 +311,33 @@
   .score-med .score-circle { background: var(--amber-dim); border: 2px solid var(--amber); color: var(--amber); }
   .score-low .score-circle { background: var(--red-dim); border: 2px solid var(--red); color: var(--red); }
 
-  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--blue-dark); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--blue-dim); }
-  .criteria-results { background: var(--surface); border: 1px solid var(--border); margin-bottom: 24px; overflow: hidden; }
-  .criterion-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--border); }
-  .crit-status { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; font-weight: 700; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--blue-dark);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue-dim);
+  }
+
+  .criteria-results {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .criterion-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .crit-status { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
   .crit-pass { color: var(--green); } .crit-fail { color: var(--red); } .crit-warn { color: var(--amber); }
   .crit-body { flex: 1; } .crit-name { font-size: 13px; font-weight: 600; color: var(--blue-dark); margin-bottom: 3px; } .crit-note { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
@@ -257,8 +347,8 @@
   .rewrite-header .angle-name { font-weight: 700; font-size: 16px; color: var(--blue-dark); }
   .rewrite-body { padding: 20px; }
   .rewrite-hook { font-size: 24px; font-weight: 800; color: var(--blue-dark); margin-bottom: 12px; line-height: 1.1; }
-  .rewrite-channels { display: flex; flex-direction: column; gap: 10px; }
-  .channel-line { display: flex; gap: 12px; align-items: flex-start; }
+  
+  .channel-line { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
   .ch-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--muted); min-width: 70px; padding-top: 2px; }
   .ch-text { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); line-height: 1.6; }
 
@@ -271,88 +361,126 @@
 <body>
 
 <header>
-  <div class="logo-mark">A</div>
+  <div class="logo-mark">Aliat</div>
   <div>
     <div class="logo-text">Hook Point Evaluador</div>
-    <div class="logo-sub">Social Media — Aliat Universidades</div>
+    <div class="logo-sub">Social Media — Instagram &amp; Facebook</div>
   </div>
   <div class="header-badge">Agente IA</div>
 </header>
 
 <div class="main">
+
   <div class="config-card">
     <div class="field-label" style="color: var(--amber);">Configuración de Acceso</div>
-    <p style="font-size: 12px; margin-bottom: 10px; color: var(--text-light);">Ingresa tu API Key de Anthropic (Claude) para habilitar el motor de evaluación.</p>
+    <p style="font-size: 12px; margin-bottom: 12px; color: var(--text-light);">
+        Esta herramienta utiliza la IA de Claude. Ingresa tu API Key de Anthropic para habilitar la evaluación.
+    </p>
     <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." style="background: white; border-color: var(--amber);">
   </div>
 
   <div id="formSection">
     <div class="intro">
       <h1>Evalúa tu<br><span>Publicación</span></h1>
-      <p>Analiza tu contenido con el modelo Hook Point. Obtén feedback estratégico, puntaje de impacto y sugerencias de reescritura.</p>
+      <p>Analiza tu contenido con el modelo Hook Point. Te diré qué funciona, qué ajustar y cómo mejorar tu impacto estratégico.</p>
     </div>
 
     <div class="card">
-      <div class="field-row">
-        <div class="field-block">
+      <div class="field-block">
           <div class="field-label">Red Social <span class="req">*</span></div>
           <select id="canal">
-            <option value="">Seleccionar canal</option>
-            <option value="instagram_feed">Instagram — Feed</option>
+            <option value="">Seleccionar red social</option>
+            <option value="instagram_feed">Instagram — Feed (foto/carrusel)</option>
             <option value="instagram_reels">Instagram — Reels</option>
+            <option value="instagram_stories">Instagram — Stories</option>
             <option value="facebook_feed">Facebook — Feed</option>
+            <option value="facebook_reels">Facebook — Reels</option>
           </select>
-        </div>
-        <div class="field-block">
-          <div class="field-label">Etapa del funnel</div>
-          <div class="funnel-row">
-            <div class="funnel-btn" onclick="selectFunnel(this,'TOFU')"><div class="fn-label">TOFU</div></div>
-            <div class="funnel-btn" onclick="selectFunnel(this,'MOFU')"><div class="fn-label">MOFU</div></div>
-            <div class="funnel-btn" onclick="selectFunnel(this,'BOFU')"><div class="fn-label">BOFU</div></div>
-          </div>
-        </div>
       </div>
 
       <div class="field-block">
         <div class="field-label">Hook / Primera línea <span class="req">*</span></div>
-        <input type="text" id="hook" placeholder='Ej: "Tu experiencia no basta"'>
+        <input type="text" id="hook" placeholder='Ej: "Tu experiencia no basta"' maxlength="200" />
       </div>
 
       <div class="field-block">
-        <div class="field-label">Cuerpo del copy</div>
-        <textarea id="cuerpo" placeholder="Pega el resto de la publicación aquí..."></textarea>
+        <div class="field-label">Cuerpo del copy completo</div>
+        <textarea id="cuerpo" placeholder="Pega aquí el texto completo..."></textarea>
       </div>
 
       <div class="field-row">
         <div class="field-block">
-          <div class="field-label">Ángulo intentado</div>
+          <div class="field-label">Ángulo</div>
           <select id="angulo">
-            <option value="">No definido</option>
+            <option value="">No definido / No sé</option>
             <option value="Error">Error</option>
+            <option value="Pérdida">Pérdida</option>
             <option value="Realidad">Realidad</option>
             <option value="Reencuadre">Reencuadre</option>
-            <option value="Identidad">Identidad</option>
-            <option value="Oportunidad">Oportunidad</option>
+            <option value="Oportunidad">Oportunidad oculta</option>
+            <option value="Identidad">Identidad / Espejo</option>
+            <option value="Aspiración">Aspiración realista</option>
+            <option value="Evidencia">Evidencia / Prueba</option>
           </select>
         </div>
         <div class="field-block">
           <div class="field-label">Pilar de contenido</div>
           <select id="pilar">
-            <option value="">Seleccionar pilar</option>
+            <option value="">Seleccionar (opcional)</option>
             <option value="NO SÉ QUÉ ESTUDIAR">No sé qué estudiar</option>
             <option value="CÓMO ELEGIR CARRERA">Cómo elegir carrera</option>
-            <option value="ESTUDIAR Y TRABAJAR">Estudiar y trabajar</option>
+            <option value="¿PUEDO ESTUDIAR Y TRABAJAR?">¿Puedo estudiar y trabajar?</option>
+            <option value="PAPÁ BUSCANDO UNIVERSIDAD">Papá/Mamá buscando universidad</option>
+            <option value="QUÉ CAMPUS ME CONVIENE">Qué campus me conviene</option>
+            <option value="REVALIDACIÓN">Revalidación</option>
+            <option value="ESTUDIAR EN LÍNEA">Estudiar en línea</option>
+            <option value="EMPLEABILIDAD">Empleabilidad</option>
+            <option value="VIDA UNIVERSITARIA">Vida universitaria útil</option>
+            <option value="DIFERENCIADORES">Diferenciadores reales</option>
           </select>
         </div>
       </div>
 
       <div class="field-block">
         <div class="field-label">Tipo de hook</div>
-        <div class="hook-type-grid">
-          <div class="hook-type-pill" onclick="selectHookType(this)" data-val="disruptivo">Disruptivo ★</div>
-          <div class="hook-type-pill" onclick="selectHookType(this)" data-val="curiosidad">Curiosidad</div>
-          <div class="hook-type-pill" onclick="selectHookType(this)" data-val="identificacion">Identificación</div>
-          <div class="hook-type-pill" onclick="selectHookType(this)" data-val="valor">Valor</div>
+        <div class="hook-type-grid" id="hookTypeGrid">
+          <div class="hook-type-pill" data-val="interrupcion" onclick="selectHookType(this)">Interrupción</div>
+          <div class="hook-type-pill" data-val="curiosidad" onclick="selectHookType(this)">Curiosidad</div>
+          <div class="hook-type-pill" data-val="identificacion" onclick="selectHookType(this)">Identificación</div>
+          <div class="hook-type-pill" data-val="valor" onclick="selectHookType(this)">Valor inmediato</div>
+          <div class="hook-type-pill" data-val="disruptivo" onclick="selectHookType(this)">Disruptivo ★</div>
+          <div class="hook-type-pill" data-val="aspiracional" onclick="selectHookType(this)">Aspiracional</div>
+          <div class="hook-type-pill" data-val="identidad" onclick="selectHookType(this)">Identidad</div>
+        </div>
+      </div>
+
+      <div class="field-block">
+        <div class="field-label">Etapa del funnel</div>
+        <div class="funnel-row">
+          <div class="funnel-btn" onclick="selectFunnel(this,'TOFU')">
+            <div class="fn-label">TOFU</div>
+            <div class="fn-desc">Awareness</div>
+          </div>
+          <div class="funnel-btn" onclick="selectFunnel(this,'MOFU')">
+            <div class="fn-label">MOFU</div>
+            <div class="fn-desc">Consideración</div>
+          </div>
+          <div class="funnel-btn" onclick="selectFunnel(this,'BOFU')">
+            <div class="fn-label">BOFU</div>
+            <div class="fn-desc">Decisión</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-block" style="margin-bottom:0">
+        <div class="field-label">Criterios de evaluación</div>
+        <div class="criteria-grid">
+          <div class="criteria-item"><div class="dot"></div>Máx. 6 palabras</div>
+          <div class="criteria-item"><div class="dot"></div>Contexto educativo</div>
+          <div class="criteria-item"><div class="dot"></div>Tensión inmediata</div>
+          <div class="criteria-item"><div class="dot"></div>Rompe una creencia</div>
+          <div class="criteria-item"><div class="dot"></div>Nativo (no anuncio)</div>
+          <div class="criteria-item"><div class="dot"></div>Reglas por canal</div>
         </div>
       </div>
     </div>
@@ -363,17 +491,42 @@
 
   <div class="loading-state" id="loadingState">
     <div class="spinner"></div>
-    EL MODELO ESTÁ ANALIZANDO TU ESTRATEGIA...
+    REVISANDO ESTRATEGIA CON EL MODELO...
   </div>
 
   <div class="result-container" id="resultSection"></div>
+
 </div>
 
 <script>
 const API_URL = "https://api.anthropic.com/v1/messages";
 
-// --- SYSTEM PROMPT COMPLETO (Restaurado) ---
-const systemPrompt = `Eres el coach de contenido orgánico de Aliat Universidades, experto en la metodología Hook Point aplicada a educación.
+function showError(msg) {
+  const el = document.getElementById('errorMsg');
+  el.textContent = msg; el.style.display = 'block';
+}
+function hideError() { document.getElementById('errorMsg').style.display = 'none'; }
+
+async function evaluarCopy() {
+  hideError();
+  const userApiKey = document.getElementById('apiKeyInput').value.trim();
+  if (!userApiKey) { showError('Ingresa tu API Key de Anthropic.'); return; }
+
+  const canal = document.getElementById('canal').value;
+  const hook = document.getElementById('hook').value.trim();
+  const cuerpo = document.getElementById('cuerpo').value.trim();
+  const angulo = document.getElementById('angulo').value;
+  const pilar = document.getElementById('pilar').value;
+  const hookType = document.querySelector('.hook-type-pill.selected')?.dataset.val || '';
+  const funnel = document.querySelector('.funnel-btn.selected')?.dataset.val || '';
+
+  if (!hook || !canal) { showError('El canal y el hook son obligatorios.'); return; }
+
+  document.getElementById('formSection').style.display = 'none';
+  document.getElementById('loadingState').style.display = 'flex';
+
+  // --- SYSTEM PROMPT (Your original massive ruleset) ---
+  const systemPrompt = `Eres el coach de contenido orgánico de Aliat Universidades, experto en la metodología Hook Point aplicada a educación.
 
 Tu rol NO es castigar ni señalar errores sin más. Tu rol es actuar como un jefe virtual que acompaña, orienta y hace crecer al equipo de Social Media — como si la directora de marketing estuviera dando retroalimentación personalizada a cada persona, sin estar físicamente presente.
 
@@ -552,36 +705,14 @@ RESPONDE EN JSON PURO sin markdown ni backticks. Sé CONCISO en criterios (máx 
   ]
 }`;
 
-function showError(msg) {
-  const el = document.getElementById('errorMsg');
-  el.textContent = msg; el.style.display = 'block';
-}
-
-async function evaluarCopy() {
-  const keyInput = document.getElementById('apiKeyInput').value.trim();
-  
-  // --- PEGA TU LLAVE AQUÍ SI QUIERES FIJARLA ---
-  const apiKey = keyInput || ""; 
-
-  if (!apiKey) { showError('Ingresa tu API Key de Anthropic.'); return; }
-
-  const canal = document.getElementById('canal').value;
-  const hook = document.getElementById('hook').value.trim();
-  if (!hook || !canal) { showError('El hook y el canal son obligatorios.'); return; }
-
-  document.getElementById('formSection').style.display = 'none';
-  document.getElementById('loadingState').style.display = 'flex';
-
-  const userMsg = `Evalúa este copy:
-  CANAL: ${canal} | HOOK: "${hook}" | CUERPO: ${document.getElementById('cuerpo').value}
-  ÁNGULO: ${document.getElementById('angulo').value} | FUNNEL: ${document.querySelector('.funnel-btn.selected')?.dataset.val || 'N/A'}`;
+  const userMsg = `Evalúa este copy: Canal: ${canal}, Hook: "${hook}", Cuerpo: ${cuerpo}, Ángulo: ${angulo}, Pilar: ${pilar}, Funnel: ${funnel}.`;
 
   try {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey,
+        'x-api-key': userApiKey,
         'anthropic-version': '2023-06-01',
         'anthropic-dangerous-direct-browser-access': 'true'
       },
@@ -596,7 +727,8 @@ async function evaluarCopy() {
     const data = await res.json();
     if (!res.ok) throw new Error(data.error?.message || 'Error en API');
 
-    const result = JSON.parse(data.content[0].text);
+    let clean = data.content[0].text.replace(/```json|```/g, '').trim();
+    const result = JSON.parse(clean);
     renderResult(result, hook);
 
   } catch (err) {
@@ -606,7 +738,6 @@ async function evaluarCopy() {
   }
 }
 
-// --- RENDERIZADO COMPLETO (Restaurado) ---
 function renderResult(r, hook) {
   document.getElementById('loadingState').style.display = 'none';
   const sec = document.getElementById('resultSection');
@@ -627,7 +758,7 @@ function renderResult(r, hook) {
 
   const rewritesHTML = (r.reescrituras || []).map(rw => `
     <div class="rewrite-card">
-      <div class="rewrite-header"><span class="angle-tag">${rw.angulo}</span></div>
+      <div class="rewrite-header"><span class="angle-tag">Ángulo</span><span class="angle-name">${rw.angulo}</span></div>
       <div class="rewrite-body">
         <div class="rewrite-hook">${rw.hook}</div>
         <div class="channel-line"><div class="ch-label">FEED</div><div class="ch-text">${rw.caption_feed}</div></div>
@@ -641,19 +772,24 @@ function renderResult(r, hook) {
       <div class="score-info">
         <div class="score-label">${r.nivel}</div>
         <div class="score-verdict">${r.veredicto_corto}</div>
+        <div style="font-size:11px; color:var(--muted); margin-top:10px;">"${hook}"</div>
       </div>
     </div>
+
     <div class="section-title">Análisis Estratégico</div>
     <div class="criteria-results">${criteriaHTML}</div>
-    <div class="section-title">Coaching y Pistas</div>
-    <div class="card" style="font-size:14px; line-height:1.6;">
-      <strong>¿Por qué no detiene?:</strong> ${r.coaching.por_que_no_detiene}<br><br>
-      <strong>💡 Pista:</strong> ${r.coaching.pistas_de_direccion}<br><br>
-      <strong>🎯 Reto:</strong> ${r.coaching.reto_final}
+
+    <div class="section-title">Coaching del Modelo</div>
+    <div class="card" style="font-size:13px; line-height:1.6;">
+        <p><strong>Por qué no detiene:</strong> ${r.coaching.por_que_no_detiene}</p><br>
+        <p><strong>Pistas de dirección:</strong> ${r.coaching.pistas_de_direccion}</p><br>
+        <p><strong>Reto final:</strong> ${r.coaching.reto_final}</p>
     </div>
-    <div class="section-title">Propuestas de Mejora</div>
+
+    <div class="section-title">Referencias de Mejora</div>
     ${rewritesHTML}
-    <button class="btn-reset" onclick="location.reload()">← Evaluar otro</button>
+
+    <button class="btn-reset" onclick="location.reload()">← Evaluar otra publicación</button>
   `;
 }
 
