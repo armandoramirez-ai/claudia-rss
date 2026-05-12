@@ -312,7 +312,7 @@ export default async function handler(req, res) {
   }
  
   // ─── 2. RATE LIMIT POR USUARIO POR DÍA ───
-  const quota = parseInt(process.env.DAILY_QUOTA || '3', 10);
+  const quota = parseInt(process.env.DAILY_QUOTA || '30', 10);
   let remaining = quota;
  
   // Si Upstash no está configurado, omitimos rate limiting (modo degradado, log warning)
