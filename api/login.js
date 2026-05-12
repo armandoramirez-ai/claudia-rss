@@ -23,7 +23,9 @@ export default async function handler(req, res) {
   const users = [
     { u: process.env.USER1_NAME, p: process.env.USER1_PASSWORD },
     { u: process.env.USER2_NAME, p: process.env.USER2_PASSWORD },
-    { u: process.env.USER3_NAME, p: process.env.USER3_PASSWORD }
+    { u: process.env.USER3_NAME, p: process.env.USER3_PASSWORD },
+    { u: process.env.USER4_NAME, p: process.env.USER4_PASSWORD },
+    { u: process.env.USER5_NAME, p: process.env.USER5_PASSWORD }
   ].filter(x => x.u && x.p);
  
   // Comparación constant-time-ish para evitar timing attacks básicos
