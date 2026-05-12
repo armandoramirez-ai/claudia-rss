@@ -6,7 +6,7 @@
 <title>Hook Point — Evaluador Social Media · Aliat</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
- 
+
   :root {
     --bg: #edf4f8;
     --surface: #ffffff;
@@ -23,14 +23,16 @@
     --blue-light: #00AAD2;
     --blue-dim: #d6edf5;
     --blue-xdim: #eaf5fb;
+    --purple: #7044a0;
+    --purple-dim: #ebe0f5;
     --white: #ffffff;
     --muted: #6a93aa;
     --text: #0d2f40;
     --text-light: #3a6275;
   }
- 
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
   body {
     background: var(--bg);
     color: var(--text);
@@ -38,7 +40,7 @@
     min-height: 100vh;
     padding: 0;
   }
- 
+
   /* HEADER */
   header {
     background: var(--blue-dark);
@@ -123,22 +125,17 @@
     cursor: pointer;
     transition: all 0.15s;
   }
-  .btn-logout:hover {
-    background: var(--blue-light);
-    color: var(--blue-dark);
-  }
- 
+  .btn-logout:hover { background: var(--blue-light); color: var(--blue-dark); }
+
   /* LAYOUT */
   .main {
     max-width: 860px;
     margin: 0 auto;
     padding: 40px 24px 80px;
   }
- 
+
   /* INTRO */
-  .intro {
-    margin-bottom: 36px;
-  }
+  .intro { margin-bottom: 36px; }
   .intro h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 42px;
@@ -155,13 +152,19 @@
     line-height: 1.6;
     max-width: 520px;
   }
- 
-  /* LOGIN SCREEN */
-  .login-container {
-    max-width: 440px;
-    margin: 80px auto;
-    padding: 0 24px;
+  .intro-hint {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--blue-xdim);
+    border-left: 3px solid var(--blue);
+    font-size: 12px;
+    color: var(--text);
+    max-width: 520px;
+    line-height: 1.5;
   }
+
+  /* LOGIN SCREEN */
+  .login-container { max-width: 440px; margin: 80px auto; padding: 0 24px; }
   .login-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -177,15 +180,8 @@
     margin-bottom: 6px;
     letter-spacing: -0.5px;
   }
-  .login-sub {
-    font-size: 13px;
-    color: var(--text-light);
-    margin-bottom: 24px;
-    line-height: 1.5;
-  }
-  .login-field {
-    margin-bottom: 16px;
-  }
+  .login-sub { font-size: 13px; color: var(--text-light); margin-bottom: 24px; line-height: 1.5; }
+  .login-field { margin-bottom: 16px; }
   .btn-login {
     width: 100%;
     background: var(--blue-dark);
@@ -203,7 +199,7 @@
   }
   .btn-login:hover { background: var(--blue); }
   .btn-login:disabled { background: var(--border); cursor: not-allowed; }
- 
+
   /* FORM */
   .card {
     background: var(--surface);
@@ -212,7 +208,7 @@
     padding: 28px;
     margin-bottom: 24px;
   }
- 
+
   .field-label {
     font-size: 11px;
     font-weight: 700;
@@ -224,12 +220,15 @@
     align-items: center;
     gap: 8px;
   }
-  .field-label .req {
-    color: var(--red);
-    font-size: 13px;
+  .field-label .req { color: var(--red); font-size: 13px; font-weight: 400; }
+  .field-label .opt {
+    color: var(--muted);
     font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 10px;
   }
- 
+
   select, textarea, input {
     width: 100%;
     background: #f4f9fc;
@@ -243,9 +242,7 @@
     appearance: none;
     -webkit-appearance: none;
   }
-  select:focus, textarea:focus, input:focus {
-    border-color: var(--blue);
-  }
+  select:focus, textarea:focus, input:focus { border-color: var(--blue); }
   select {
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236a93aa' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
@@ -253,90 +250,12 @@
     background-position: right 12px center;
     padding-right: 36px;
   }
-  textarea {
-    resize: vertical;
-    min-height: 120px;
-    line-height: 1.6;
-  }
+  textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
   ::placeholder { color: var(--muted); }
- 
-  .field-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
+
   .field-block { margin-bottom: 20px; }
   .field-block:last-child { margin-bottom: 0; }
- 
-  /* HOOK TYPE PILLS */
-  .hook-type-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-  }
-  .hook-type-pill {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 6px 12px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
-    user-select: none;
-  }
-  .hook-type-pill:hover { border-color: var(--blue); color: var(--text); }
-  .hook-type-pill.selected { background: var(--blue-dim); border-color: var(--blue); color: var(--blue-dark); }
- 
-  /* FUNNEL */
-  .funnel-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-top: 10px;
-  }
-  .funnel-btn {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 8px 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .funnel-btn .fn-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
-  .funnel-btn .fn-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
-  .funnel-btn.selected { background: var(--blue-dim); border-color: var(--blue); }
-  .funnel-btn.selected .fn-label, .funnel-btn.selected .fn-desc { color: var(--blue-dark); }
- 
-  .criteria-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .criteria-item {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 10px 12px;
-    font-size: 12px;
-    color: var(--muted);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    cursor: default;
-  }
-  .criteria-item .dot {
-    width: 6px; height: 6px;
-    background: var(--blue);
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
- 
+
   /* SUBMIT */
   .btn-eval {
     width: 100%;
@@ -351,12 +270,8 @@
     transition: background 0.2s;
   }
   .btn-eval:hover { background: var(--blue); }
-  .btn-eval:disabled {
-    background: var(--border);
-    color: var(--muted);
-    cursor: not-allowed;
-  }
- 
+  .btn-eval:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
+
   /* LOADING */
   .loading-state {
     display: none;
@@ -377,10 +292,10 @@
     animation: spin 0.8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
- 
+
   /* RESULTS */
   .result-container { display: none; }
- 
+
   .score-hero {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -397,7 +312,6 @@
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     flex-shrink: 0;
-    font-family: 'Montserrat', sans-serif;
   }
   .score-circle .num { font-size: 38px; line-height: 1; }
   .score-circle .den { font-size: 12px; letter-spacing: 1px; }
@@ -406,16 +320,15 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     font-weight: 800;
-    letter-spacing: 0px;
     color: var(--white);
     margin-bottom: 6px;
   }
   .score-verdict { font-size: 13px; line-height: 1.6; color: var(--text); }
- 
+
   .score-high .score-circle { background: var(--blue-dim); border: 2px solid var(--blue); color: var(--blue-dark); }
   .score-med .score-circle { background: var(--amber-dim); border: 2px solid var(--amber); color: var(--amber); }
   .score-low .score-circle { background: var(--red-dim); border: 2px solid var(--red); color: var(--red); }
- 
+
   .section-title {
     font-size: 11px;
     font-weight: 700;
@@ -426,7 +339,56 @@
     padding-bottom: 8px;
     border-bottom: 2px solid var(--blue-dim);
   }
- 
+
+  /* INSIGHTS DEL MODELO — nuevo en v3 */
+  .insights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .insight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px 18px;
+    border-top: 3px solid var(--blue);
+  }
+  .insight-card.tipo { border-top-color: var(--purple); }
+  .insight-card.funnel { border-top-color: var(--amber); }
+  .insight-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .insight-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+  }
+  .insight-card.tipo .insight-value { color: var(--purple); }
+  .insight-card.funnel .insight-value { color: var(--amber); }
+  .insight-sublabel {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .insight-expl {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  /* CRITERIA RESULTS */
   .criteria-results {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -456,11 +418,12 @@
   .crit-body { flex: 1; }
   .crit-name { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
   .crit-note { font-size: 12px; color: var(--muted); line-height: 1.5; }
- 
+
+  /* REWRITE CARDS */
   .rewrite-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     overflow: hidden;
   }
   .rewrite-header {
@@ -490,18 +453,13 @@
   .rewrite-body { padding: 20px; }
   .rewrite-hook {
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: -0.5px;
     color: var(--white);
     margin-bottom: 12px;
-    line-height: 1.1;
+    line-height: 1.15;
   }
-  .rewrite-channels {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  .rewrite-channels { display: flex; flex-direction: column; gap: 10px; }
   .channel-line { display: flex; gap: 12px; align-items: flex-start; }
   .ch-label {
     font-size: 10px;
@@ -509,7 +467,7 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--muted);
-    min-width: 70px;
+    min-width: 90px;
     padding-top: 2px;
     flex-shrink: 0;
   }
@@ -519,7 +477,7 @@
     color: var(--text);
     line-height: 1.6;
   }
- 
+
   .btn-reset {
     background: transparent;
     border: 1px solid var(--border);
@@ -532,7 +490,7 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-reset:hover { border-color: var(--blue); color: var(--blue); }
- 
+
   .error-msg {
     background: var(--red-dim);
     border: 1px solid var(--red);
@@ -542,10 +500,11 @@
     margin-bottom: 20px;
     display: none;
   }
- 
+
+  @media (max-width: 700px) {
+    .insights-grid { grid-template-columns: 1fr; }
+  }
   @media (max-width: 600px) {
-    .field-row { grid-template-columns: 1fr; }
-    .criteria-grid { grid-template-columns: 1fr 1fr; }
     .score-hero { flex-direction: column; gap: 16px; }
     .intro h1 { font-size: 36px; }
     header { padding: 16px 18px; flex-wrap: wrap; }
@@ -554,7 +513,7 @@
 </style>
 </head>
 <body>
- 
+
 <header>
   <div class="logo-mark" style="border-radius:6px;font-weight:800;font-size:14px;letter-spacing:0;padding:0 8px;width:auto">Aliat</div>
   <div>
@@ -570,15 +529,13 @@
     <div class="header-badge">Agente IA</div>
   </div>
 </header>
- 
+
 <!-- ─── PANTALLA DE LOGIN ─── -->
 <div class="login-container" id="loginScreen">
   <div class="login-card">
     <div class="login-title">Iniciar sesión</div>
     <div class="login-sub">Esta herramienta es de uso interno. Ingresa con tu usuario asignado.</div>
- 
     <div class="error-msg" id="loginError"></div>
- 
     <div class="login-field">
       <div class="field-label">Usuario</div>
       <input type="text" id="loginUser" placeholder="ej: ana" autocomplete="username" />
@@ -590,127 +547,76 @@
     <button class="btn-login" id="btnLogin" onclick="doLogin()">ENTRAR</button>
   </div>
 </div>
- 
+
 <!-- ─── APP PRINCIPAL ─── -->
 <div class="main" id="appScreen" style="display:none">
- 
+
   <div class="intro">
     <h1>Evalúa tu<br><span>Publicación</span></h1>
     <p>Tu coach de contenido. Analiza tu publicación con el modelo Hook Point, te dice qué funciona, qué ajustar y cómo pensar mejor la siguiente versión.</p>
+    <div class="intro-hint">💡 <strong>Solo necesitas escribir tu hook.</strong> El modelo detecta solo el ángulo, el tipo de hook y la etapa del funnel — así aprendes el método en cada evaluación.</div>
   </div>
- 
+
   <div id="formSection">
     <div class="card">
       <div class="field-block">
-          <div class="field-label">Red Social <span class="req">*</span></div>
-          <select id="canal">
-            <option value="">Seleccionar red social</option>
-            <option value="instagram_feed">Instagram — Feed (foto/carrusel)</option>
-            <option value="instagram_reels">Instagram — Reels</option>
-            <option value="instagram_stories">Instagram — Stories</option>
-            <option value="facebook_feed">Facebook — Feed</option>
-            <option value="facebook_reels">Facebook — Reels</option>
-          </select>
-        </div>
- 
+        <div class="field-label">Red Social <span class="req">*</span></div>
+        <select id="canal">
+          <option value="">Seleccionar red social</option>
+          <option value="instagram_feed">Instagram — Feed (foto/carrusel)</option>
+          <option value="instagram_reels">Instagram — Reels</option>
+          <option value="instagram_stories">Instagram — Stories</option>
+          <option value="facebook_feed">Facebook — Feed</option>
+          <option value="facebook_reels">Facebook — Reels</option>
+        </select>
+      </div>
+
+      <div class="field-block">
+        <div class="field-label">Pilar de contenido <span class="opt">(opcional)</span></div>
+        <select id="pilar">
+          <option value="">Seleccionar pilar (opcional)</option>
+          <option value="NO SÉ QUÉ ESTUDIAR">No sé qué estudiar</option>
+          <option value="CÓMO ELEGIR CARRERA">Cómo elegir carrera</option>
+          <option value="¿PUEDO ESTUDIAR Y TRABAJAR?">¿Puedo estudiar y trabajar?</option>
+          <option value="PAPÁ BUSCANDO UNIVERSIDAD">Papá/Mamá buscando universidad</option>
+          <option value="QUÉ CAMPUS ME CONVIENE">Qué campus me conviene</option>
+          <option value="REVALIDACIÓN">Revalidación</option>
+          <option value="ESTUDIAR EN LÍNEA">Estudiar en línea</option>
+          <option value="EMPLEABILIDAD">Empleabilidad y futuro profesional</option>
+          <option value="VIDA UNIVERSITARIA">Vida universitaria útil</option>
+          <option value="DIFERENCIADORES">Diferenciadores reales de la oferta</option>
+        </select>
+      </div>
+
       <div class="field-block">
         <div class="field-label">Hook / Primera línea <span class="req">*</span></div>
-        <input type="text" id="hook" placeholder='Ej: "Tu experiencia no basta"' maxlength="200" />
+        <input type="text" id="hook" placeholder='Ej: "Tu pasión no basta"' maxlength="200" />
       </div>
- 
-      <div class="field-block">
-        <div class="field-label">Cuerpo del copy completo</div>
-        <textarea id="cuerpo" maxlength="5000" placeholder="Pega aquí el texto completo de la publicación (opcional pero recomendado)..."></textarea>
-      </div>
- 
-      <div class="field-row">
-        <div class="field-block">
-          <div class="field-label">Ángulo</div>
-          <select id="angulo">
-            <option value="">No definido / No sé</option>
-            <option value="Error">Error — evalúa mal su situación</option>
-            <option value="Pérdida">Pérdida — puede perder algo importante</option>
-            <option value="Realidad">Realidad — lo importante no es lo que cree</option>
-            <option value="Reencuadre">Reencuadre — cambia cómo ve el problema</option>
-            <option value="Oportunidad">Oportunidad oculta — algo que no estaba viendo</option>
-            <option value="Identidad">Identidad / Espejo — el usuario se ve reflejado</option>
-            <option value="Aspiración">Aspiración realista — lo que quiere lograr</option>
-            <option value="Evidencia">Evidencia / Prueba — criterios claros para decidir</option>
-          </select>
-        </div>
-        <div class="field-block">
-          <div class="field-label">Pilar de contenido</div>
-          <select id="pilar">
-            <option value="">Seleccionar (opcional)</option>
-            <option value="NO SÉ QUÉ ESTUDIAR">No sé qué estudiar</option>
-            <option value="CÓMO ELEGIR CARRERA">Cómo elegir carrera</option>
-            <option value="¿PUEDO ESTUDIAR Y TRABAJAR?">¿Puedo estudiar y trabajar?</option>
-            <option value="PAPÁ BUSCANDO UNIVERSIDAD">Papá/Mamá buscando universidad</option>
-            <option value="QUÉ CAMPUS ME CONVIENE">Qué campus me conviene</option>
-            <option value="REVALIDACIÓN">Revalidación</option>
-            <option value="ESTUDIAR EN LÍNEA">Estudiar en línea</option>
-            <option value="EMPLEABILIDAD">Empleabilidad y futuro profesional</option>
-            <option value="VIDA UNIVERSITARIA">Vida universitaria útil</option>
-            <option value="DIFERENCIADORES">Diferenciadores reales de la oferta</option>
-          </select>
-        </div>
-      </div>
- 
-      <div class="field-block">
-        <div class="field-label">Tipo de hook <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-size:10px">(★ = más valorado)</span></div>
-        <div class="hook-type-grid">
-          <div class="hook-type-pill" data-val="interrupcion" onclick="selectHookType(this)">Interrupción</div>
-          <div class="hook-type-pill" data-val="curiosidad" onclick="selectHookType(this)">Curiosidad</div>
-          <div class="hook-type-pill" data-val="identificacion" onclick="selectHookType(this)">Identificación</div>
-          <div class="hook-type-pill" data-val="valor" onclick="selectHookType(this)">Valor inmediato</div>
-          <div class="hook-type-pill" data-val="disruptivo" onclick="selectHookType(this)">Disruptivo ★</div>
-          <div class="hook-type-pill" data-val="aspiracional" onclick="selectHookType(this)">Aspiracional</div>
-          <div class="hook-type-pill" data-val="identidad" onclick="selectHookType(this)">Identidad</div>
-        </div>
-      </div>
- 
-      <div class="field-block">
-        <div class="field-label">Etapa del funnel</div>
-        <div class="funnel-row">
-          <div class="funnel-btn" onclick="selectFunnel(this,'TOFU')"><div class="fn-label">TOFU</div><div class="fn-desc">Awareness</div></div>
-          <div class="funnel-btn" onclick="selectFunnel(this,'MOFU')"><div class="fn-label">MOFU</div><div class="fn-desc">Consideración</div></div>
-          <div class="funnel-btn" onclick="selectFunnel(this,'BOFU')"><div class="fn-label">BOFU</div><div class="fn-desc">Decisión</div></div>
-        </div>
-      </div>
- 
+
       <div class="field-block" style="margin-bottom:0">
-        <div class="field-label">Criterios que se evalúan automáticamente</div>
-        <div class="criteria-grid">
-          <div class="criteria-item"><div class="dot"></div>¿Detiene al segmento correcto?</div>
-          <div class="criteria-item"><div class="dot"></div>¿Se entiende en menos de un segundo?</div>
-          <div class="criteria-item"><div class="dot"></div>¿Tiene tensión real?</div>
-          <div class="criteria-item"><div class="dot"></div>¿Abre sin cerrar?</div>
-          <div class="criteria-item"><div class="dot"></div>¿Se siente humano?</div>
-          <div class="criteria-item"><div class="dot"></div>Longitud adecuada al formato</div>
-          <div class="criteria-item"><div class="dot"></div>Cuerpo sostiene la promesa</div>
-          <div class="criteria-item"><div class="dot"></div>Evita lenguaje institucional</div>
-        </div>
+        <div class="field-label">Cuerpo del copy completo <span class="opt">(opcional pero recomendado)</span></div>
+        <textarea id="cuerpo" maxlength="5000" placeholder="Pega aquí el texto completo de la publicación..."></textarea>
       </div>
     </div>
- 
+
     <div class="error-msg" id="errorMsg"></div>
- 
+
     <button class="btn-eval" id="btnEval" onclick="evaluarCopy()">EVALUAR PUBLICACIÓN</button>
   </div>
- 
+
   <div class="loading-state" id="loadingState">
     <div class="spinner"></div>
     REVISANDO CON EL MODELO...
   </div>
- 
+
   <div class="result-container" id="resultSection"></div>
 </div>
- 
+
 <script>
 const LS_TOKEN = 'aliat_hookpoint_token';
 const LS_USER = 'aliat_hookpoint_user';
 const LS_EXP = 'aliat_hookpoint_exp';
- 
+
 // ─── AUTH ────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem(LS_TOKEN);
@@ -723,35 +629,30 @@ window.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem(LS_EXP);
     showLogin();
   }
- 
-  // Enter en campos de login
   document.getElementById('loginUser').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('loginPass').focus(); });
   document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 });
- 
+
 function showLogin() {
   document.getElementById('loginScreen').style.display = 'block';
   document.getElementById('appScreen').style.display = 'none';
   document.getElementById('userInfo').classList.remove('visible');
 }
- 
 function showApp(username) {
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('appScreen').style.display = 'block';
   document.getElementById('userInfo').classList.add('visible');
   document.getElementById('userName').textContent = username;
-  // El contador de cuota se actualiza tras la primera petición
   document.getElementById('quotaPill').textContent = 'Listo';
   document.getElementById('quotaPill').className = 'quota-pill';
 }
- 
 function logout() {
   localStorage.removeItem(LS_TOKEN);
   localStorage.removeItem(LS_USER);
   localStorage.removeItem(LS_EXP);
   showLogin();
 }
- 
+
 async function doLogin() {
   const errEl = document.getElementById('loginError');
   errEl.style.display = 'none';
@@ -785,17 +686,15 @@ async function doLogin() {
     btn.textContent = 'ENTRAR';
   }
 }
- 
+
 // ─── EVALUACIÓN ──────────────────────────────────────────
 function showError(msg) {
   const el = document.getElementById('errorMsg');
   el.textContent = msg;
   el.style.display = 'block';
 }
-function hideError() {
-  document.getElementById('errorMsg').style.display = 'none';
-}
- 
+function hideError() { document.getElementById('errorMsg').style.display = 'none'; }
+
 function updateQuotaPill(remaining, total) {
   const pill = document.getElementById('quotaPill');
   pill.textContent = `${remaining} / ${total} hoy`;
@@ -803,26 +702,23 @@ function updateQuotaPill(remaining, total) {
   if (remaining === 0) pill.classList.add('out');
   else if (remaining === 1) pill.classList.add('low');
 }
- 
+
 async function evaluarCopy() {
   hideError();
   const canal = document.getElementById('canal').value;
   const hook = document.getElementById('hook').value.trim();
   const cuerpo = document.getElementById('cuerpo').value.trim();
-  const angulo = document.getElementById('angulo').value;
   const pilar = document.getElementById('pilar').value;
-  const hookType = document.querySelector('.hook-type-pill.selected')?.dataset.val || '';
-  const funnel = document.querySelector('.funnel-btn.selected')?.dataset.val || '';
- 
+
   if (!hook) { showError('El hook / primera línea es obligatorio.'); return; }
   if (!canal) { showError('Selecciona el canal de la publicación.'); return; }
- 
+
   document.getElementById('formSection').style.display = 'none';
   document.getElementById('loadingState').style.display = 'flex';
   document.getElementById('resultSection').style.display = 'none';
- 
+
   const token = localStorage.getItem(LS_TOKEN);
- 
+
   try {
     const res = await fetch('/api/evaluar', {
       method: 'POST',
@@ -830,15 +726,11 @@ async function evaluarCopy() {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
       },
-      body: JSON.stringify({ canal, hook, cuerpo, angulo, pilar, hookType, funnel })
+      body: JSON.stringify({ canal, hook, cuerpo, pilar })
     });
     const data = await res.json();
- 
-    if (res.status === 401) {
-      // Token expirado o inválido
-      logout();
-      return;
-    }
+
+    if (res.status === 401) { logout(); return; }
     if (res.status === 429) {
       document.getElementById('formSection').style.display = 'block';
       document.getElementById('loadingState').style.display = 'none';
@@ -848,45 +740,42 @@ async function evaluarCopy() {
     }
     if (!res.ok) throw new Error(data.error || 'Error en el servidor');
     if (!data.evaluation) throw new Error('Respuesta inválida del servidor');
- 
+
     if (data.quota) updateQuotaPill(data.quota.remaining, data.quota.total);
     renderResult(data.evaluation, hook, canal);
- 
+
   } catch (err) {
     document.getElementById('formSection').style.display = 'block';
     document.getElementById('loadingState').style.display = 'none';
     showError('Error al evaluar: ' + err.message);
   }
 }
- 
+
 function renderResult(r, hook, canal) {
   document.getElementById('loadingState').style.display = 'none';
   const sec = document.getElementById('resultSection');
   sec.style.display = 'block';
- 
+
   const score = Math.min(10, Math.max(0, r.score));
   const scoreClass = score >= 7 ? 'score-high' : score >= 4 ? 'score-med' : 'score-low';
-  // Colores por nivel — APROBADO=azul, CON AJUSTES=ámbar, NECESITA TRABAJO=rojo
   const nivelColor = r.nivel === 'APROBADO' ? 'var(--blue)'
     : r.nivel === 'CON AJUSTES' ? 'var(--amber)'
     : 'var(--red)';
- 
-  // Criterios: PASA / AJUSTE / REVISAR
+
+  // Criterios PASA / AJUSTE / REVISAR
   const criteriaHTML = (r.criterios || []).map(c => {
     const estado = (c.estado || '').toUpperCase();
     const icon = estado === 'PASA' ? '✓' : estado === 'AJUSTE' ? '!' : '✗';
     const cls = estado === 'PASA' ? 'crit-pass' : estado === 'AJUSTE' ? 'crit-warn' : 'crit-fail';
     return `<div class="criterion-row"><div class="crit-status ${cls}">${icon}</div><div class="crit-body"><div class="crit-name">${c.nombre}</div><div class="crit-note">${c.nota}</div></div></div>`;
   }).join('');
- 
-  // Lo que sí funciona (antes: reconocimiento)
+
   const reconocimientoHTML = r.lo_que_si_funciona ? `
     <div style="background:var(--green-dim);border:1px solid var(--green);border-left:4px solid var(--green);padding:14px 18px;margin-bottom:24px">
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--green);margin-bottom:6px">✓ Lo que sí funciona</div>
       <div style="font-size:13px;color:var(--text);line-height:1.6">${r.lo_que_si_funciona}</div>
     </div>` : '';
- 
-  // Observación estratégica (antes: alerta_fatiga)
+
   const obsHTML = r.observacion_estrategica ? `
     <div style="background:var(--amber-dim);border:1px solid var(--amber);padding:14px 18px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start">
       <div style="color:var(--amber);font-size:16px;flex-shrink:0">💡</div>
@@ -895,25 +784,43 @@ function renderResult(r, hook, canal) {
         <div style="font-size:13px;color:var(--text);line-height:1.6">${r.observacion_estrategica}</div>
       </div>
     </div>` : '';
- 
-  // Badge de ángulo + tipo + explicación de clasificación
-  const hookTypeBadge = (r.tipo_hook_detectado || r.angulo_detectado || r.explicacion_clasificacion) ? `
+
+  // ─── INSIGHTS DEL MODELO — nuevo en v3 ───
+  const ins = r.insights || {};
+  const insightsHTML = (ins.angulo || ins.tipo_hook || ins.etapa_funnel) ? `
     <div style="margin-bottom:24px">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px">
-        ${r.angulo_detectado ? `<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)">Ángulo:</span><span style="background:var(--blue-dim);border:1px solid var(--blue);padding:4px 12px;font-size:12px;font-weight:600;color:var(--blue-dark)">${r.angulo_detectado}</span>` : ''}
-        ${r.tipo_hook_detectado ? `<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-left:8px">Tipo:</span><span style="background:var(--surface2);border:1px solid var(--border);padding:4px 12px;font-size:12px;font-weight:600;color:var(--text)">${r.tipo_hook_detectado}</span>` : ''}
+      <div class="section-title">🧠 Insights del modelo · Lo que detecté solo</div>
+      <div class="insights-grid">
+        ${ins.angulo ? `
+          <div class="insight-card">
+            <div class="insight-label">Ángulo</div>
+            <div class="insight-value">${ins.angulo.detectado || '—'}</div>
+            <div class="insight-expl">${ins.angulo.explicacion || ''}</div>
+          </div>` : ''}
+        ${ins.tipo_hook ? `
+          <div class="insight-card tipo">
+            <div class="insight-label">Tipo de hook</div>
+            <div class="insight-value">${ins.tipo_hook.detectado || '—'}</div>
+            <div class="insight-expl">${ins.tipo_hook.explicacion || ''}</div>
+          </div>` : ''}
+        ${ins.etapa_funnel ? `
+          <div class="insight-card funnel">
+            <div class="insight-label">Etapa del funnel</div>
+            <div class="insight-value">${ins.etapa_funnel.detectada || '—'}</div>
+            ${ins.etapa_funnel.etiqueta ? `<div class="insight-sublabel">${ins.etapa_funnel.etiqueta}</div>` : ''}
+            <div class="insight-expl">${ins.etapa_funnel.explicacion || ''}</div>
+          </div>` : ''}
       </div>
-      ${r.explicacion_clasificacion ? `<div style="font-size:12px;color:var(--text-light);line-height:1.5;font-style:italic;padding-left:2px">${r.explicacion_clasificacion}</div>` : ''}
     </div>` : '';
- 
-  // Coaching (con nuevos nombres de campos)
+
+  // Coaching
   const c = r.coaching || {};
   const preguntasHTML = (c.preguntas_para_pensar || []).map((p,i) => `
     <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
       <div style="width:22px;height:22px;background:var(--blue-dim);border:1px solid var(--blue);color:var(--blue-dark);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">${i+1}</div>
       <div style="font-size:13px;color:var(--text);line-height:1.6;font-style:italic">${p}</div>
     </div>`).join('');
- 
+
   const coachingHTML = (Object.keys(c).length || r.reto_final) ? `
     <div style="margin-bottom:24px">
       <div class="section-title">Coaching · Retroalimentación del modelo</div>
@@ -924,8 +831,7 @@ function renderResult(r, hook, canal) {
       ${c.patrones_referencia ? `<div style="background:var(--surface);border:1px solid var(--border);padding:16px 20px;margin-bottom:14px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue-dark);margin-bottom:8px">Patrones de referencia</div><div style="font-size:13px;color:var(--text);line-height:1.7">${c.patrones_referencia}</div></div>` : ''}
       ${r.reto_final ? `<div style="background:var(--blue-dark);padding:20px 24px;margin-bottom:0"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.6);margin-bottom:8px">Tu reto</div><div style="font-size:14px;color:white;line-height:1.7;font-weight:500">${r.reto_final}</div></div>` : ''}
     </div>` : '';
- 
-  // Reescrituras (ahora sin descripcion ni tipo_hook, sólo angulo + hook + caption_feed + copy_alt)
+
   const rewritesHTML = (r.reescrituras || []).map(rw => `
     <div class="rewrite-card">
       <div class="rewrite-header">
@@ -940,7 +846,7 @@ function renderResult(r, hook, canal) {
         </div>
       </div>
     </div>`).join('');
- 
+
   sec.innerHTML = `
     <div class="score-hero ${scoreClass}">
       <div class="score-circle"><span class="num">${score}</span><span class="den">/10</span></div>
@@ -952,7 +858,7 @@ function renderResult(r, hook, canal) {
     </div>
     ${reconocimientoHTML}
     ${obsHTML}
-    ${hookTypeBadge}
+    ${insightsHTML}
     <div style="margin-bottom:24px">
       <div class="section-title">Evaluación por criterio</div>
       <div class="criteria-results">${criteriaHTML}</div>
@@ -965,16 +871,7 @@ function renderResult(r, hook, canal) {
     </div>
     <button class="btn-reset" onclick="resetForm()">← Evaluar otra publicación</button>`;
 }
- 
-function selectHookType(el) {
-  document.querySelectorAll('.hook-type-pill').forEach(p => p.classList.remove('selected'));
-  el.classList.add('selected');
-}
-function selectFunnel(el, val) {
-  document.querySelectorAll('.funnel-btn').forEach(b => { b.classList.remove('selected'); delete b.dataset.val; });
-  el.classList.add('selected');
-  el.dataset.val = val;
-}
+
 function resetForm() {
   document.getElementById('resultSection').style.display = 'none';
   document.getElementById('resultSection').innerHTML = '';
@@ -982,10 +879,7 @@ function resetForm() {
   document.getElementById('hook').value = '';
   document.getElementById('cuerpo').value = '';
   document.getElementById('canal').value = '';
-  document.getElementById('angulo').value = '';
   document.getElementById('pilar').value = '';
-  document.querySelectorAll('.hook-type-pill').forEach(p => p.classList.remove('selected'));
-  document.querySelectorAll('.funnel-btn').forEach(b => { b.classList.remove('selected'); delete b.dataset.val; });
   hideError();
 }
 </script>
